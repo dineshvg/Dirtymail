@@ -34,6 +34,10 @@ import com.google.api.client.util.ExponentialBackOff;
 import com.google.api.services.gmail.GmailScopes;
 import com.google.api.services.gmail.model.Label;
 import com.google.api.services.gmail.model.ListLabelsResponse;
+import com.google.api.services.gmail.model.ListMessagesResponse;
+import com.google.api.services.gmail.model.Message;
+import com.mail.dinesh.mailapplication.utils.Constants;
+import com.mail.dinesh.mailapplication.utils.GmailHelper;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -46,6 +50,7 @@ import pub.devrel.easypermissions.EasyPermissions;
 public class MainActivity extends AppCompatActivity implements EasyPermissions.PermissionCallbacks{
 
     GoogleAccountCredential mCredential;
+    GmailHelper apiQuery;
     private TextView mOutputText;
     private Button mCallApiButton;
     ProgressDialog mProgress;
@@ -57,7 +62,10 @@ public class MainActivity extends AppCompatActivity implements EasyPermissions.P
 
     private static final String BUTTON_TEXT = "Call Gmail API";
     private static final String PREF_ACCOUNT_NAME = "accountName";
-    private static final String[] SCOPES = { GmailScopes.GMAIL_LABELS };
+    private static final String[] SCOPES =
+            { GmailScopes.MAIL_GOOGLE_COM,
+            GmailScopes.GMAIL_MODIFY,
+            GmailScopes.GMAIL_READONLY };
 
 
     @Override
@@ -321,7 +329,7 @@ public class MainActivity extends AppCompatActivity implements EasyPermissions.P
             JsonFactory jsonFactory = JacksonFactory.getDefaultInstance();
             mService = new com.google.api.services.gmail.Gmail.Builder(
                     transport, jsonFactory, credential)
-                    .setApplicationName("Gmail API Android Quickstart")
+                    .setApplicationName(Constants.APP_NAME)
                     .build();
         }
 
@@ -332,12 +340,48 @@ public class MainActivity extends AppCompatActivity implements EasyPermissions.P
         @Override
         protected List<String> doInBackground(Void... params) {
             try {
-                return getDataFromApi();
+                apiQuery = new GmailHelper();
+                return  apiQuery.listThreadsMatchingQuery(mService, Constants.USER,Constants.INBOX_UNREAD_QUERY);
+                //return apiQuery.getUnreadMails(mService);
+                //return getMsgListFromApi();
+                //return getDataFromApi();
             } catch (Exception e) {
                 mLastError = e;
                 cancel(true);
                 return null;
             }
+        }
+
+        /**
+         * Fetch a list of Gmail labels attached to the specified account.
+         * @return List of messages
+         * @throws IOException
+         */
+        private List<String> getMsgListFromApi() throws IOException {
+            // Get the labels in the user's account.
+            String user = "me";
+            String query = "is:unread";
+            List<String> labels = new ArrayList<String>();
+            ListMessagesResponse response = mService.users().messages().list(user).setQ(query).execute();
+            List<Message> messages = new ArrayList<Message>();
+            while (response.getMessages() != null) {
+                messages.addAll(response.getMessages());
+                if (response.getNextPageToken() != null) {
+                    String pageToken = response.getNextPageToken();
+                    response = mService.users().messages().list(user).setQ(query)
+                            .setPageToken(pageToken).execute();
+                } else {
+                    break;
+                }
+            }
+
+            for (Message message : messages) {
+                labels.add(message.toPrettyString());
+                //System.out.println(message.toPrettyString());
+            }
+
+
+            return labels;
         }
 
         /**

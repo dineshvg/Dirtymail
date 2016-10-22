@@ -1,4 +1,5 @@
 apply plugin: 'com.android.application'
+apply plugin: 'android-apt'
 
 android {
     compileSdkVersion 23
@@ -30,4 +31,13 @@ dependencies {
     compile('com.google.apis:google-api-services-gmail:v1-rev48-1.22.0') {
         exclude group: 'org.apache.httpcomponents'
     }
+    //Include Realm DB
+    compile 'io.realm:realm-android:0.84.1'
+    //Include ButterKnife library
+    compile 'com.jakewharton:butterknife:8.4.0'
+    apt 'com.jakewharton:butterknife-compiler:8.4.0'
+    //Include memory leak checking
+    debugCompile 'com.squareup.leakcanary:leakcanary-android:1.5'
+    releaseCompile 'com.squareup.leakcanary:leakcanary-android-no-op:1.5'
+    testCompile 'com.squareup.leakcanary:leakcanary-android-no-op:1.5'
 }
