@@ -341,12 +341,10 @@ public class MainActivity extends AppCompatActivity implements EasyPermissions.P
         protected List<String> doInBackground(Void... params) {
             try {
                 apiQuery = new GmailHelper();
-                return  apiQuery.listThreadsMatchingQuery(mService, Constants.USER,Constants.INBOX_UNREAD_QUERY);
-                //return apiQuery.getUnreadMails(mService);
-                //return getMsgListFromApi();
-                //return getDataFromApi();
+                return  apiQuery.listThreadsMatchingQuery(mService, Constants.USER);
             } catch (Exception e) {
                 mLastError = e;
+                e.printStackTrace();
                 cancel(true);
                 return null;
             }

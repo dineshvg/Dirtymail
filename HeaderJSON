@@ -1,0 +1,71 @@
+10-23 16:05:03.825 10173-10316/com.mail.dinesh.mailapplication D/Manager: JSON Object : {"name":"Delivered-To","value":"dineshvg1023@gmail.com"}
+
+10-23 16:05:03.825 10173-10316/com.mail.dinesh.mailapplication D/Manager: JSON Object : {"name":"Received","value":"by 10.28.137.67 with SMTP id l64csp2185928wmd;        Sun, 23 Oct 2016 06:36:19 -0700 (PDT)"}
+
+10-23 16:05:03.825 10173-10316/com.mail.dinesh.mailapplication D/Manager: JSON Object : {"name":"X-Received","value":"by 10.98.52.194 with SMTP id b185mr19320698pfa.41.1477229779164;        Sun, 23 Oct 2016 06:36:19 -0700 (PDT)"}
+
+10-23 16:05:03.825 10173-10316/com.mail.dinesh.mailapplication D/Manager: JSON Object : {"name":"Return-Path","value":"<n00974437b4-0c691f50002845c884b2910842934624-dineshvg1023===gmail.com@bounce.twitter.com>"}
+
+10-23 16:05:03.825 10173-10316/com.mail.dinesh.mailapplication D/Manager: JSON Object : {"name":"Received","value":"from spruce-goose-ar.twitter.com (spruce-goose-ar.twitter.com. [199.59.150.87])        by mx.google.com with ESMTPS id jg4si9282797pac.69.2016.10.23.06.36.18        for <dineshvg1023@gmail.com>        (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128\/128);        Sun, 23 Oct 2016 06:36:19 -0700 (PDT)"}
+
+10-23 16:05:03.825 10173-10316/com.mail.dinesh.mailapplication D/Manager: JSON Object : {"name":"Received-SPF","value":"pass (google.com: domain of n00974437b4-0c691f50002845c884b2910842934624-dineshvg1023===gmail.com@bounce.twitter.com designates 199.59.150.87 as permitted sender) client-ip=199.59.150.87;"}
+
+10-23 16:05:03.825 10173-10316/com.mail.dinesh.mailapplication D/Manager: JSON Object : {"name":"Authentication-Results","value":"mx.google.com;       dkim=pass header.i=@twitter.com;       spf=pass (google.com: domain of n00974437b4-0c691f50002845c884b2910842934624-dineshvg1023===gmail.com@bounce.twitter.com designates 199.59.150.87 as permitted sender) smtp.mailfrom=n00974437b4-0c691f50002845c884b2910842934624-dineshvg1023===gmail.com@bounce.twitter.com;       dmarc=pass (p=REJECT dis=NONE) header.from=twitter.com"}
+
+10-23 16:05:03.826 10173-10316/com.mail.dinesh.mailapplication D/Manager: JSON Object : {"name":"DKIM-Signature","value":"v=1; a=rsa-sha256; c=relaxed\/relaxed; d=twitter.com; s=dkim-201406; t=1477229778; bh=fgs47BtAGwWqwYxwtEOr7ntE2tNbQFwjc2KyE\/JfzQE=; h=Date:From:To:Subject:MIME-Version:Content-Type:List-Unsubscribe:\t Message-ID; b=KPO3\/WxnuKVyyr8UKjPQHdPoQ7X6vWUCOqnNOyiNyEnLIQKwILIbWoQUvDGLf+XWb\t YgyotOW4KiPK1rrRZ0TzuRSPiVpj3FqGNkmOfMF33RbYOqyn\/8e61wA3BQhwoAWBET\t 7sxKa+sgjxrsc9bI4EXPSgi9XIm9JoaFgf3QrTpEHOXYqcSJmKr5jPL\/zxuYy7XjWj\t 51ZzYAnxEs4dOq2dlyUb36mSROnMPpdSMkSgGlqpl1nX1m8oFJIUVpONYNAyYRrM8U\t Frfo81X895xaSrfzpBe4HHNX4t6muB2Kx7onSwX4SvW2cdKtW6UT7KAm\/k0wQ7dIGG\t SOJL2BjMTuP8A=="}
+
+10-23 16:05:03.826 10173-10316/com.mail.dinesh.mailapplication D/Manager: JSON Object : {"name":"X-MSFBL","value":"7Bx80\/E4Qe2Ah9u4a7rPqzDrKlRXbm4wgm2f50Ua5qA=|eyJ1IjoiZGluZXNodmc xMDIzQGdtYWlsLmNvbUBpaWQjIzBjNjkxZjUwMDAyODQ1Yzg4NGIyOTEwODQyOTM 0NjI0QHVzYiMjMjRAMjQ0QDc4NDQ5ODM5NTM2MDY1NzQwOEAwQDJmYjQ4ZDI0NDk xOGEwNGM1ZTFkOGJhOGUwN2E1OTczNzg5ZTYzNTAiLCJyIjoiZGluZXNodmcxMDI zQGdtYWlsLmNvbSIsImIiOiJzbWYxLWJlcC0zOC1zcjEtRXZlcnl0aGluZy4xODc iLCJnIjoiRXZlcnl0aGluZyJ9"}
+
+10-23 16:05:03.827 10173-10316/com.mail.dinesh.mailapplication D/Manager: JSON Object : {"name":"Date","value":"Sun, 23 Oct 2016 13:36:18 +0000"}
+
+10-23 16:05:03.827 10173-10316/com.mail.dinesh.mailapplication D/Manager: JSON Object : {"name":"From","value":"Twitter <info@twitter.com>"}
+
+10-23 16:05:03.827 10173-10316/com.mail.dinesh.mailapplication D/Manager: JSON Object : {"name":"To","value":"Dinesh VG <dineshvg1023@gmail.com>"}
+
+10-23 16:05:03.827 10173-10316/com.mail.dinesh.mailapplication D/Manager: JSON Object : {"name":"Subject","value":"Follow Florian Hanke 🚀, Oliver Emberton and genius tips on Twitter!"}
+
+10-23 16:05:03.827 10173-10316/com.mail.dinesh.mailapplication D/Manager: JSON Object : {"name":"MIME-Version","value":"1.0"}
+
+10-23 16:05:03.828 10173-10316/com.mail.dinesh.mailapplication D/Manager: JSON Object : {"name":"Content-Type","value":"multipart\/alternative; boundary=\"----=_Part_15146309_1753559042.1477229778695\""}
+
+10-23 16:05:03.828 10173-10316/com.mail.dinesh.mailapplication D/Manager: JSON Object : {"name":"List-Unsubscribe","value":"<https:\/\/twitter.com\/i\/u?t=1&listunsub=t&cn=ZmxleGlibGVfcmVjc18y&sig=f6842d576bb454112ca9d8ca1948a5f541e0bc07&iid=0c691f50002845c884b2910842934624&uid=784498395360657408&nid=244+26&usbid=7>"}
+
+10-23 16:05:03.828 10173-10316/com.mail.dinesh.mailapplication D/Manager: JSON Object : {"name":"Feedback-ID","value":"0040162518f58f41d1f0:15491f3b2ee48656f8e7fb2fac5926:none:twitterESP"}
+
+10-23 16:05:03.829 10173-10316/com.mail.dinesh.mailapplication D/Manager: JSON Object : {"name":"Precedence","value":"Bulk"}
+
+10-23 16:05:03.829 10173-10316/com.mail.dinesh.mailapplication D/Manager: JSON Object : {"name":"Message-ID","value":"<B7.3A.55424.2DCBC085@twitter.com>"}
+
+10-23 16:05:03.833 10173-10316/com.mail.dinesh.mailapplication D/Manager: header String: [{"name":"Delivered-To","value":"dineshvg1023@gmail.com"}, 
+
+{"name":"Received","value":"by 10.28.137.67 with SMTP id l64csp2185928wmd;        Sun, 23 Oct 2016 06:36:19 -0700 (PDT)"}
+
+, {"name":"X-Received","value":"by 10.98.52.194 with SMTP id b185mr19320698pfa.41.1477229779164;        Sun, 23 Oct 2016 06:36:19 -0700 (PDT)"}, 
+
+{"name":"Return-Path","value":"<n00974437b4-0c691f50002845c884b2910842934624-dineshvg1023===gmail.com@bounce.twitter.com>"},
+
+ {"name":"Received","value":"from spruce-goose-ar.twitter.com (spruce-goose-ar.twitter.com. [199.59.150.87])        by mx.google.com with ESMTPS id jg4si9282797pac.69.2016.10.23.06.36.18        for <dineshvg1023@gmail.com>        (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);        Sun, 23 Oct 2016 06:36:19 -0700 (PDT)"},
+
+ {"name":"Received-SPF","value":"pass (google.com: domain of n00974437b4-0c691f50002845c884b2910842934624-dineshvg1023===gmail.com@bounce.twitter.com designates 199.59.150.87 as permitted sender) client-ip=199.59.150.87;"}, 
+
+{"name":"Authentication-Results","value":"mx.google.com;       dkim=pass header.i=@twitter.com;       spf=pass (google.com: domain of n00974437b4-0c691f50002845c884b2910842934624-dineshvg1023===gmail.com@bounce.twitter.com designates 199.59.150.87 as permitted sender) smtp.mailfrom=n00974437b4-0c691f50002845c884b2910842934624-dineshvg1023===gmail.com@bounce.twitter.com;       dmarc=pass (p=REJECT dis=NONE) header.from=twitter.com"}, 
+
+
+{"name":"DKIM-Signature","value":"v=1; a=rsa-sha256; c=relaxed/relaxed; d=twitter.com; s=dkim-201406; t=1477229778; bh=fgs47BtAGwWqwYxwtEOr7ntE2tNbQFwjc2KyE/JfzQE=; h=Date:From:To:Subject:MIME-Version:Content-Type:List-Unsubscribe:\t Message-ID; b=KPO3/WxnuKVyyr8UKjPQHdPoQ7X6vWUCOqnNOyiNyEnLIQKwILIbWoQUvDGLf+XWb\t YgyotOW4KiPK1rrRZ0TzuRSPiVpj3FqGNkmOfMF33RbYOqyn/8e61wA3BQhwoAWBET\t 7sxKa+sgjxrsc9bI4EXPSgi9XIm9JoaFgf3QrTpEHOXYqcSJmKr5jPL/zxuYy7XjWj\t 51ZzYAnxEs4dOq2dlyUb36mSROnMPpdSMkSgGlqpl1nX1m8oFJIUVpONYNAyYRrM8U\t Frfo81X895xaSrfzpBe4HHNX4t6muB2Kx7onSwX4SvW2cdKtW6UT7KAm/k0wQ7dIGG\t SOJL2BjMTuP8A=="}, 
+
+{"name":"X-MSFBL","value":"7Bx80/E4Qe2Ah9u4a7rPqzDrKlRXbm4wgm2f50Ua5qA=|eyJ1IjoiZGluZXNodmc xMDIzQGdtYWlsLmNvbUBpaWQjIzBjNjkxZjUwMDAyODQ1Yzg4NGIyOTEwODQyOTM 0NjI0QHVzYiMjMjRAMjQ0QDc4NDQ5ODM5NTM2MDY1NzQwOEAwQDJmYjQ4ZDI0NDk xOGEwNGM1ZTFkOGJhOGUwN2E1OTczNzg5ZTYzNTAiLCJyIjoiZGluZXNodmcxMDI zQGdtYWlsLmNvbSIsImIiOiJzbWYxLWJlcC0zOC1zcjEtRXZlcnl0aGluZy4xODc iLCJnIjoiRXZlcnl0aGluZyJ9"}, 
+
+{"name":"Date","value":"Sun, 23 Oct 2016 13:36:18 +0000"}, 
+
+{"name":"From","value":"Twitter <info@twitter.com>"},
+
+
+{"name":"To","value":"Dinesh VG <dineshvg1023@gmail.com>"}, 
+
+{"name":"Subject","value":"Follow Florian Hanke \uD83D\uDE80, Oliver Emberton and genius tips on Twitter!"}, {"name":"MIME-Version","value":"1.0"}, 
+
+{"name":"Content-Type","value":"multipart/alternative; boundary=\"----=_Part_15146309_1753559042.1477229778695\""}, {"name":"List-Unsubscribe","value":"<https://twitter.com/i/u?t=1&listunsub=t&cn=ZmxleGlibGVfcmVjc18y&sig=f6842d576bb454112ca9d8ca1948a5f541e0bc07&iid=0c691f50002845c884b2910842934624&uid=784498395360657408&nid=244+26&usbid=7>"},
+
+"name":"Feedback-ID","value":"0040162518f58f41d1f0:15491f3b2ee48656f8e7fb2fac5926:none:twitterESP"}, {"name":"Precedence","value":"Bulk"}, {"name":"Message-ID","value":"<B7.3A.55424.2DCBC085@twitter.com>"}]
+
+

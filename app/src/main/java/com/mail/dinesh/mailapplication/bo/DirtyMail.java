@@ -18,6 +18,9 @@ public class DirtyMail extends RealmObject{
     private String messageId;
     private String threadId;
     private String readLabel;
+    private String date;
+    private String subject;
+    private boolean important;
     private String fromAddress;
     private String toAddress;
     private String replyToAddress;
@@ -94,5 +97,29 @@ public class DirtyMail extends RealmObject{
 
     public void setMessageFull(String messageFull) {
         this.messageFull = messageFull;
+    }
+
+    public boolean getImportant() {
+        return important;
+    }
+
+    public void setImportant(boolean important) {
+        this.important = important;
+    }
+
+    public String getDate() {
+        return date;
+    }
+
+    public void setDate(String date) {
+        this.date = date;
+    }
+
+    public String getSubject() {
+        return subject;
+    }
+
+    public void setSubject(String subject) {
+        this.subject = subject;
     }
 }
