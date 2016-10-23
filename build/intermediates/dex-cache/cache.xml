@@ -57,6 +57,15 @@
     </item>
     <item
         is-multidex="true"
+        jar="/home/dinesh/.gradle/caches/modules-2/files-2.1/javax.activation/activation/1.1.1/485de3a253e23f645037828c07f1d7f1af40763a/activation-1.1.1.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="485de3a253e23f645037828c07f1d7f1af40763a">
+        <dex dex="/home/dinesh/GitHub Repo/Dirtymail/app/build/intermediates/transforms/dex/debug/folders/1000/10/activation-1.1.1_ca202c86bfecba48f6e094e4236d148a41a13af1/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
         jar="/home/dinesh/GitHub Repo/Dirtymail/app/build/intermediates/exploded-aar/com.android.support/support-v4/23.4.0/jars/classes.jar"
         jumboMode="true"
         optimize="true"
@@ -88,7 +97,7 @@
         jumboMode="true"
         optimize="true"
         revision="23.0.3"
-        sha1="e4b075a1cca3b1199f514a8f63fdc9a7c6ff618b">
+        sha1="9dad348852c2c7079fceec9da7e2b0dddbdbff35">
         <dex dex="/home/dinesh/GitHub Repo/Dirtymail/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run_61ec12e1676d29a506f6467a8b846781d427b1a1/classes.dex" />
     </item>
     <item
@@ -99,15 +108,6 @@
         revision="23.0.3"
         sha1="463f8378feba44df7ba7cd9272d01837dad62b36">
         <dex dex="/home/dinesh/GitHub Repo/Dirtymail/app/build/intermediates/transforms/dex/debug/folders/1000/10/guava-jdk5-17.0_9fb79c75062b40786536a34580502fb759c644ad/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/home/dinesh/.gradle/caches/modules-2/files-2.1/javax.activation/activation/1.1/e6cb541461c2834bdea3eb920f1884d1eb508b50/activation-1.1.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="23.0.3"
-        sha1="e6cb541461c2834bdea3eb920f1884d1eb508b50">
-        <dex dex="/home/dinesh/GitHub Repo/Dirtymail/app/build/intermediates/transforms/dex/debug/folders/1000/10/activation-1.1_7488bf5d24b7bd53ac4a4a6723435cad1a3271b8/classes.dex" />
     </item>
     <item
         is-multidex="true"
@@ -153,6 +153,15 @@
         revision="23.0.3"
         sha1="8a23146e1a8c7cb4758e3d3f62449213f1e51f67">
         <dex dex="/home/dinesh/GitHub Repo/Dirtymail/app/build/intermediates/transforms/dex/debug/folders/1000/10/support-annotations-24.1.0_ecc4c9db996682550e69d09f248c006996cd6a13/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/dinesh/.gradle/caches/modules-2/files-2.1/org.apache.commons/commons-email/1.3.3/c1a7133db9008fa1eae082e6158c3f4c128ec27e/commons-email-1.3.3.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="c1a7133db9008fa1eae082e6158c3f4c128ec27e">
+        <dex dex="/home/dinesh/GitHub Repo/Dirtymail/app/build/intermediates/transforms/dex/debug/folders/1000/10/commons-email-1.3.3_8ccda0e9b0fc0882d889d3e50a1cf30aa248b2cc/classes.dex" />
     </item>
     <item
         is-multidex="true"
@@ -268,7 +277,7 @@
         jumboMode="true"
         optimize="true"
         revision="23.0.3"
-        sha1="b931231ac22b325add84a3184f5ac7df60081d43">
+        sha1="619085cd47f68f43bdf56c862d97b7e5bbb6ba80">
         <dex dex="/home/dinesh/GitHub Repo/Dirtymail/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run-bootstrap_319a8b006bdac5ae9a9ede0fdb06f221dd771d6e/classes.dex" />
     </item>
     <item

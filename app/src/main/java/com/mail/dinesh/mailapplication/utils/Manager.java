@@ -3,6 +3,7 @@ package com.mail.dinesh.mailapplication.utils;
 import android.util.Log;
 import android.util.SparseArray;
 
+import com.google.api.client.util.Base64;
 import com.google.api.services.gmail.model.Message;
 import com.google.api.services.gmail.model.MessagePart;
 import com.google.api.services.gmail.model.MessagePartHeader;
@@ -54,16 +55,103 @@ public class Manager {
             mail.setMessageSnippet(fullMessage.getSnippet());
         }
 
-        //Get payload -> header from mail
+        //Get payload -> header and content from mail
         if(fullMessage.getPayload()!=null) {
             MessagePart payLoad = fullMessage.getPayload();
+            //Get content
+            getContent(payLoad);
+            //Get headers
             if(payLoad.getHeaders()!=null) {
                 List<MessagePartHeader> headers = payLoad.getHeaders();
                 mail = getHeaderParts(mail,headers);
                 Log.d(TAG,"dirty mail created");
             }
         }
+    }
 
+    private static void getContent(MessagePart payLoad) {
+        String mimeType = payLoad.getMimeType();
+        Log.d("New Mail","------------------------------------------------------");
+        Log.d(TAG,"Mime type of payload: "+mimeType);
+        String mailBody = "";
+        List<MessagePart> parts = payLoad.getParts();
+
+        if(mimeType.contains("mixed")) {
+            if(parts!=null) {
+                Log.d(TAG,parts.size()+" parts in the mixed mime");
+                for (MessagePart part : parts) {
+                    Log.d(TAG,"part mimeType : "+part.getMimeType());
+                    if(part!=null) {
+                        if(part.getBody()!=null) {
+                            if(part.getBody().getData()!=null) {
+                                Log.d("Data", part.getBody().getData());
+                                Log.d(TAG,"part established");
+                            }
+
+                        }
+                    }
+                }
+            }
+        }
+        /*if(mimeType.contains("mixed")) {
+            for (MessagePart part : parts) {
+                String partMimeType = part.getMimeType();
+                Log.d(TAG,"part mime "+part.getMimeType());
+                String partMailBody = "";
+
+                if(partMimeType.contains("plain")) {
+                    partMailBody = new String(Base64.decodeBase64(part.getBody()
+                            .getData().getBytes()));
+                    Log.d(TAG,partMailBody);
+                }
+                if(partMimeType.contains("html")) {
+                    partMailBody = new String(Base64.decodeBase64(part.getBody()
+                            .getData().getBytes()));
+                    Log.d(TAG,partMailBody);
+                }
+                if(partMimeType.contains("alternative")) {
+                    partMailBody = new String(Base64.decodeBase64(part.getBody()
+                            .getData().getBytes()));
+                    Log.d(TAG,partMailBody);
+                }
+                *//*mailBody = new String(Base64.decodeBase64(part.getBody()
+                        .getData().getBytes()));
+                Log.d(TAG,mailBody);*//*
+            }
+        }*/
+
+        if(mimeType.contains("plain")) {
+            if(parts!=null) {
+                for (MessagePart part : parts) {
+                    Log.d(TAG,"mimeType of part"+part.getMimeType());
+                    mailBody = new String(Base64.decodeBase64(part.getBody()
+                            .getData().getBytes()));
+                    Log.d(TAG,mailBody);
+                }
+            }
+        }
+
+        if(mimeType.contains("html")) {
+            if(parts!=null) {
+                for (MessagePart part : parts) {
+                    Log.d(TAG,"mimeType of part"+part.getMimeType());
+                    mailBody = new String(Base64.decodeBase64(part.getBody()
+                            .getData().getBytes()));
+                    Log.d(TAG,mailBody);
+                }
+            }
+        }
+
+        if (mimeType.contains("alternative")) {
+            if(parts!=null) {
+                for (MessagePart part : parts) {
+                    Log.d(TAG,"mimeType of part"+part.getMimeType());
+                    mailBody = new String(Base64.decodeBase64(part.getBody()
+                            .getData().getBytes()));
+                    Log.d(TAG,mailBody);
+                }
+            }
+        }
     }
 
     // Pull all the information that is required from the header which is required to be stored

@@ -4,12 +4,16 @@ import android.util.Log;
 
 import com.google.api.client.repackaged.org.apache.commons.codec.binary.Base64;
 
+import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.util.List;
 
 import javax.mail.BodyPart;
 import javax.mail.MessagingException;
 import javax.mail.Multipart;
+import javax.mail.Part;
 import javax.mail.internet.MimeMessage;
 
 //Source : https://github.com/skadyrov/GmailAPI-android-example/blob/master/app/src/main/java/
@@ -54,13 +58,30 @@ public class Util {
         }
     }
 
-    public static String getContentFromMime(MimeMessage m) {
+    public static void getContentFromMime(MimeMessage m) throws IOException {
         Object c = null;
         String contentType = "";
+        String myMail = "";
+        Part messagePart = m;
         try {
-            contentType = m.getContentType();
+            Object content = m.getContent();
+            if (content instanceof Multipart) {
+                messagePart = ((Multipart) content).getBodyPart(0);
+                Log.d(TAG,"[ Multipart Message ]");
+            }
+            contentType = messagePart.getContentType();
             Log.d(TAG,contentType);
-
+            if(contentType.startsWith("TEXT/PLAIN") || contentType.startsWith("TEXT/HTML")) {
+                InputStream is = m.getInputStream();
+                BufferedReader reader = new BufferedReader(
+                        new InputStreamReader(is));
+                String thisLine = reader.readLine();
+                while (thisLine != null) {
+                    Log.d(TAG,thisLine);
+                    myMail = myMail + thisLine;
+                    thisLine = reader.readLine();
+                }
+            }
             /*if (c instanceof String) {
                 content = (String)c;
                 Log.d(TAG,content);
@@ -75,6 +96,6 @@ public class Util {
         }*/ catch (MessagingException e) {
             e.printStackTrace();
         }
-        return contentType;
+        //return contentType;
     }
 }

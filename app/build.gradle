@@ -33,7 +33,8 @@ dependencies {
     }
     //Include to get raw mail
     compile 'javax.mail:mail:1.4.7'
-
+    //Include to get parsed email
+    compile 'org.apache.commons:commons-email:1.3.3'
     //Include Realm DB
     compile 'io.realm:realm-android:0.84.1'
     //Include ButterKnife library

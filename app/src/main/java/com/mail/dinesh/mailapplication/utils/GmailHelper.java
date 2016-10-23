@@ -8,6 +8,8 @@ import com.google.api.services.gmail.model.ListThreadsResponse;
 import com.google.api.services.gmail.model.Message;
 import com.google.api.services.gmail.model.Thread;
 
+import org.apache.commons.mail.util.MimeMessageParser;
+
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -77,16 +79,16 @@ public class GmailHelper {
         for (Message message : messages) {
             Message fullMessage = getMessage(mService,Constants.USER,message.getId(),
                     Constants.EMAIL_FULL_FORMAT);
-            MimeMessage rawMessage = getRawMessage(mService,Constants.USER,message.getId());
+            //MimeMessage rawMessage = getRawMessage(mService,Constants.USER,message.getId());
             /*MimeMessageParser parser = new MimeMessageParser(rawMessage);
             try {
-                parser.parse();
+                //parser.parse();
                 String htmlContent = parser.getHtmlContent();
                 String plainContent = parser.getPlainContent();
             } catch (Exception e) {
                 e.printStackTrace();
             }*/
-            //String content = Util.getContentFromMime(rawMessage);
+            //Util.getContentFromMime(rawMessage);
             //Log.d(TAG,"Content : "+rawMessage.getContent().toString());
             Log.d(TAG,"mail");
             // TODO Add mail into realmDB and show it.
@@ -119,12 +121,10 @@ public class GmailHelper {
         if(service!=null && !userId.equals("") && !messageId.equals("")) {
             Message message = service.users().messages().get(userId, messageId)
                     .setFormat(Constants.EMAIL_RAW_FORMAT).execute();
-
             Base64 base64Url = new Base64(true);
             byte[] emailBytes = base64Url.decodeBase64(message.getRaw());
             Properties props = new Properties();
             Session session = Session.getDefaultInstance(props, null);
-
             email = new MimeMessage(session, new ByteArrayInputStream(emailBytes));
         }
         return email;

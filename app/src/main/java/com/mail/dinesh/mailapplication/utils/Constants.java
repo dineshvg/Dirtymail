@@ -16,7 +16,7 @@ public class Constants {
     //The user's email address.
     public static final String USER = "me";
     //Query max result number to be pulled
-    public static final String MAX_NUMBER = "50";
+    public static final String MAX_NUMBER = "1";
     // Query to get unread and read mails separately
     public static final String INBOX_QUERY = "in:inbox";
     public static final String INBOX_UNREAD_QUERY = "is:unread in:inbox";
