@@ -1,5 +1,10 @@
 # Dirtymail : Mail-Client
 
+### Third party information 
+
+- Logo generated using https://logomakr.com/
+- Dotted metalbackground from freepik.com. Designed by Layerace / Freepik. License allowed for commercial use.
+
 ### Tasks
 
 - Login screen (Use Google API for login, like login via Google Plus, we will use Gmail for testing)

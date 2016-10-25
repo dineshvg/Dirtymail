@@ -1,12 +1,13 @@
 apply plugin: 'com.android.application'
 apply plugin: 'android-apt'
+//apply plugin: 'realm-android'
 
 android {
     compileSdkVersion 23
     buildToolsVersion "23.0.3"
     defaultConfig {
         applicationId "com.mail.dinesh.mailapplication"
-        minSdkVersion 11
+        minSdkVersion 14
         targetSdkVersion 23
         versionCode 1
         versionName "1.0"
@@ -23,6 +24,13 @@ android {
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     compile 'com.android.support:appcompat-v7:23.4.0'
+    //Include recycler view
+    compile "com.android.support:recyclerview-v7:23.0.1"
+    //Include swipe animation
+    compile 'com.chauthai.swipereveallayout:swipe-reveal-layout:1.4.0'
+    //Include Realm DB
+    compile 'io.realm:realm-android:0.84.1'
+    testCompile 'junit:junit:4.12'
     compile 'com.google.android.gms:play-services-auth:9.0.2'
     compile 'pub.devrel:easypermissions:0.1.5'
     compile('com.google.api-client:google-api-client-android:1.22.0') {
@@ -32,16 +40,14 @@ dependencies {
         exclude group: 'org.apache.httpcomponents'
     }
     //Include to get raw mail
-    compile 'javax.mail:mail:1.4.7'
+    //compile 'javax.mail:mail:1.4.7'
     //Include to get parsed email
-    compile 'org.apache.commons:commons-email:1.3.3'
-    //Include Realm DB
-    compile 'io.realm:realm-android:0.84.1'
+    //compile 'org.apache.commons:commons-email:1.3.3'
     //Include ButterKnife library
-    compile 'com.jakewharton:butterknife:8.4.0'
-    apt 'com.jakewharton:butterknife-compiler:8.4.0'
+    //compile 'com.jakewharton:butterknife:8.4.0'
+    //apt 'com.jakewharton:butterknife-compiler:8.4.0'
     //Include memory leak checking
-    debugCompile 'com.squareup.leakcanary:leakcanary-android:1.5'
-    releaseCompile 'com.squareup.leakcanary:leakcanary-android-no-op:1.5'
-    testCompile 'com.squareup.leakcanary:leakcanary-android-no-op:1.5'
+    //debugCompile 'com.squareup.leakcanary:leakcanary-android:1.5'
+    //releaseCompile 'com.squareup.leakcanary:leakcanary-android-no-op:1.5'
+    //testCompile 'com.squareup.leakcanary:leakcanary-android-no-op:1.5'
 }

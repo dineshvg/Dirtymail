@@ -10,16 +10,19 @@ import android.content.SharedPreferences;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.AsyncTask;
+import android.os.Parcelable;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.text.TextUtils;
 import android.text.method.ScrollingMovementMethod;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.LinearLayout;
+import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.GoogleApiAvailability;
@@ -36,31 +39,35 @@ import com.google.api.services.gmail.model.Label;
 import com.google.api.services.gmail.model.ListLabelsResponse;
 import com.google.api.services.gmail.model.ListMessagesResponse;
 import com.google.api.services.gmail.model.Message;
-import com.mail.dinesh.mailapplication.utils.Constants;
-import com.mail.dinesh.mailapplication.utils.GmailHelper;
+import com.mail.dinesh.mailapplication.conf.Configuration;
+import com.mail.dinesh.mailapplication.conf.Constants;
+import com.mail.dinesh.mailapplication.googleUtils.GmailHelper;
+import com.mail.dinesh.mailapplication.utils.Util;
 
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+import io.realm.Realm;
 import pub.devrel.easypermissions.AfterPermissionGranted;
 import pub.devrel.easypermissions.EasyPermissions;
 
 public class MainActivity extends AppCompatActivity implements EasyPermissions.PermissionCallbacks{
 
+    MainActivity activity;
     GoogleAccountCredential mCredential;
     GmailHelper apiQuery;
-    private TextView mOutputText;
-    private Button mCallApiButton;
-    ProgressDialog mProgress;
+    private LinearLayout login_button;
+    ProgressBar progressBarLoadActivity;
+
+    List<List> threads;
 
     static final int REQUEST_ACCOUNT_PICKER = 1000;
     static final int REQUEST_AUTHORIZATION = 1001;
     static final int REQUEST_GOOGLE_PLAY_SERVICES = 1002;
     static final int REQUEST_PERMISSION_GET_ACCOUNTS = 1003;
 
-    private static final String BUTTON_TEXT = "Call Gmail API";
     private static final String PREF_ACCOUNT_NAME = "accountName";
     private static final String[] SCOPES =
             { GmailScopes.MAIL_GOOGLE_COM,
@@ -71,50 +78,36 @@ public class MainActivity extends AppCompatActivity implements EasyPermissions.P
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        //setContentView(R.layout.activity_main);
-        LinearLayout activityLayout = new LinearLayout(this);
-        LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(
-                LinearLayout.LayoutParams.MATCH_PARENT,
-                LinearLayout.LayoutParams.MATCH_PARENT);
-        activityLayout.setLayoutParams(lp);
-        activityLayout.setOrientation(LinearLayout.VERTICAL);
-        activityLayout.setPadding(16, 16, 16, 16);
-
-        ViewGroup.LayoutParams tlp = new ViewGroup.LayoutParams(
-                ViewGroup.LayoutParams.WRAP_CONTENT,
-                ViewGroup.LayoutParams.WRAP_CONTENT);
-
-        mCallApiButton = new Button(this);
-        mCallApiButton.setText(BUTTON_TEXT);
-        mCallApiButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                mCallApiButton.setEnabled(false);
-                mOutputText.setText("");
-                getResultsFromApi();
-                mCallApiButton.setEnabled(true);
-            }
-        });
-        activityLayout.addView(mCallApiButton);
-
-        mOutputText = new TextView(this);
-        mOutputText.setLayoutParams(tlp);
-        mOutputText.setPadding(16, 16, 16, 16);
-        mOutputText.setVerticalScrollBarEnabled(true);
-        mOutputText.setMovementMethod(new ScrollingMovementMethod());
-        mOutputText.setText(
-                "Click the \'" + BUTTON_TEXT +"\' button to test the API.");
-        activityLayout.addView(mOutputText);
-
-        mProgress = new ProgressDialog(this);
-        mProgress.setMessage("Calling Gmail API ...");
-
-        setContentView(activityLayout);
-
-        // Initialize credentials and service object.
+        setContentView(R.layout.activity_main);
+        init();
+        initListeners();
         mCredential = GoogleAccountCredential.usingOAuth2(
                 getApplicationContext(), Arrays.asList(SCOPES))
                 .setBackOff(new ExponentialBackOff());
+    }
+
+
+
+    private void init() {
+
+        activity = MainActivity.this;
+        login_button = (LinearLayout) findViewById(R.id.login_button);
+        progressBarLoadActivity = (ProgressBar) findViewById(R.id.progressBarLoadActivity);
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        //myRealm.close();
+    }
+
+    private void initListeners() {
+        login_button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                getResultsFromApi();
+            }
+        });
     }
 
     /**
@@ -130,7 +123,7 @@ public class MainActivity extends AppCompatActivity implements EasyPermissions.P
         } else if (mCredential.getSelectedAccountName() == null) {
             chooseAccount();
         } else if (! isDeviceOnline()) {
-            mOutputText.setText("No network connection available.");
+            Toast.makeText(getApplicationContext(),"No network connection available.",Toast.LENGTH_SHORT).show();
         } else {
             new MakeRequestTask(mCredential).execute();
         }
@@ -189,9 +182,10 @@ public class MainActivity extends AppCompatActivity implements EasyPermissions.P
         switch(requestCode) {
             case REQUEST_GOOGLE_PLAY_SERVICES:
                 if (resultCode != RESULT_OK) {
-                    mOutputText.setText(
-                            "This app requires Google Play Services. Please install " +
-                                    "Google Play Services on your device and relaunch this app.");
+                    Toast.makeText(getApplicationContext(),
+                            "This app requires Google Play Services. Please install \" +\n" +
+                                    "                                    \"Google Play Services on your device and relaunch this app.",
+                            Toast.LENGTH_LONG).show();
                 } else {
                     getResultsFromApi();
                 }
@@ -340,8 +334,11 @@ public class MainActivity extends AppCompatActivity implements EasyPermissions.P
         @Override
         protected List<String> doInBackground(Void... params) {
             try {
+                Realm myRealm = Realm.getDefaultInstance();
+                List<String> dataObtained = new ArrayList<>();
                 apiQuery = new GmailHelper();
-                return  apiQuery.listThreadsMatchingQuery(mService, Constants.USER);
+                threads = apiQuery.listThreadsMatchingQuery(mService, Constants.USER, myRealm);
+                return  dataObtained;
             } catch (Exception e) {
                 mLastError = e;
                 e.printStackTrace();
@@ -350,12 +347,76 @@ public class MainActivity extends AppCompatActivity implements EasyPermissions.P
             }
         }
 
-        /**
-         * Fetch a list of Gmail labels attached to the specified account.
-         * @return List of messages
-         * @throws IOException
-         */
-        private List<String> getMsgListFromApi() throws IOException {
+        @Override
+        protected void onPreExecute() {
+            progressBarLoadActivity.setVisibility(View.VISIBLE);
+        }
+
+        @Override
+        protected void onPostExecute(List<String> output) {
+            progressBarLoadActivity.setVisibility(View.INVISIBLE);
+            if(threads!=null) {
+                if(Util.isNetworkAvailable(getApplicationContext(),activity)) {
+                    Intent intent = new Intent(MainActivity.this, MailsActivity.class);
+                    //intent.putExtra(Configuration.INTENT_MAIN_TO_MAILS, (Parcelable) threads);
+                    startActivity(intent);
+                } else {
+                    Toast.makeText(getApplicationContext(), Configuration.INTERNET_ERROR_CODE,
+                            Toast.LENGTH_SHORT).show();
+                }
+                if(threads.size()>0) {
+                    Toast.makeText(getApplicationContext(),threads.size() +"threads",Toast.LENGTH_SHORT).show();
+                    Log.d("Activity","in loop");
+                }
+            }
+        }
+
+        @Override
+        protected void onCancelled() {
+            progressBarLoadActivity.setVisibility(View.INVISIBLE);
+            if (mLastError != null) {
+                if (mLastError instanceof GooglePlayServicesAvailabilityIOException) {
+                    showGooglePlayServicesAvailabilityErrorDialog(
+                            ((GooglePlayServicesAvailabilityIOException) mLastError)
+                                    .getConnectionStatusCode());
+                } else if (mLastError instanceof UserRecoverableAuthIOException) {
+                    startActivityForResult(
+                            ((UserRecoverableAuthIOException) mLastError).getIntent(),
+                            MainActivity.REQUEST_AUTHORIZATION);
+                } else {
+                    Toast.makeText(getApplicationContext(),"The following error occurred:\n"
+                            + mLastError.getMessage(),Toast.LENGTH_SHORT).show();
+                }
+            } else {
+                Toast.makeText(getApplicationContext(),"Request cancelled.",Toast.LENGTH_SHORT).show();
+            }
+        }
+    }
+}
+
+/*for(List<Thread> thread : threads) {
+                        if(thread!=null) {
+                            if(thread.size()>0) {
+                                for(List<DirtyMail> mails : thread) {
+
+                                }
+                            }
+                        }
+                    }*/
+
+    /*if (output == null || output.size() == 0) {
+                mOutputText.setText("No results returned.");
+            } else {
+                output.add(0, "Data retrieved using the Gmail API:");
+                mOutputText.setText(TextUtils.join("\n", output));
+            }*/
+
+/**
+ * Fetch a list of Gmail labels attached to the specified account.
+ * @return List of messages
+ * @throws IOException
+ */
+        /*private List<String> getMsgListFromApi() throws IOException {
             // Get the labels in the user's account.
             String user = "me";
             String query = "is:unread";
@@ -380,14 +441,14 @@ public class MainActivity extends AppCompatActivity implements EasyPermissions.P
 
 
             return labels;
-        }
+        }*/
 
-        /**
-         * Fetch a list of Gmail labels attached to the specified account.
-         * @return List of Strings labels.
-         * @throws IOException
-         */
-        private List<String> getDataFromApi() throws IOException {
+/**
+ * Fetch a list of Gmail labels attached to the specified account.
+ * @return List of Strings labels.
+ * @throws IOException
+ */
+        /*private List<String> getDataFromApi() throws IOException {
             // Get the labels in the user's account.
             String user = "me";
             List<String> labels = new ArrayList<String>();
@@ -397,45 +458,50 @@ public class MainActivity extends AppCompatActivity implements EasyPermissions.P
                 labels.add(label.getName());
             }
             return labels;
-        }
+        }*/
 
+/*LinearLayout activityLayout = new LinearLayout(this);
+        LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(
+                LinearLayout.LayoutParams.MATCH_PARENT,
+                LinearLayout.LayoutParams.MATCH_PARENT);
+        activityLayout.setLayoutParams(lp);
+        activityLayout.setOrientation(LinearLayout.VERTICAL);
+        activityLayout.setPadding(16, 16, 16, 16);
 
-        @Override
-        protected void onPreExecute() {
-            mOutputText.setText("");
-            mProgress.show();
-        }
+        ViewGroup.LayoutParams tlp = new ViewGroup.LayoutParams(
+                ViewGroup.LayoutParams.WRAP_CONTENT,
+                ViewGroup.LayoutParams.WRAP_CONTENT);
 
-        @Override
-        protected void onPostExecute(List<String> output) {
-            mProgress.hide();
-            if (output == null || output.size() == 0) {
-                mOutputText.setText("No results returned.");
-            } else {
-                output.add(0, "Data retrieved using the Gmail API:");
-                mOutputText.setText(TextUtils.join("\n", output));
+        mCallApiButton = new Button(this);
+        mCallApiButton.setText(BUTTON_TEXT);
+        mCallApiButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mCallApiButton.setEnabled(false);
+                mOutputText.setText("");
+                getResultsFromApi();
+                mCallApiButton.setEnabled(true);
             }
-        }
+        });
+        activityLayout.addView(mCallApiButton);
 
-        @Override
-        protected void onCancelled() {
-            mProgress.hide();
-            if (mLastError != null) {
-                if (mLastError instanceof GooglePlayServicesAvailabilityIOException) {
-                    showGooglePlayServicesAvailabilityErrorDialog(
-                            ((GooglePlayServicesAvailabilityIOException) mLastError)
-                                    .getConnectionStatusCode());
-                } else if (mLastError instanceof UserRecoverableAuthIOException) {
-                    startActivityForResult(
-                            ((UserRecoverableAuthIOException) mLastError).getIntent(),
-                            MainActivity.REQUEST_AUTHORIZATION);
-                } else {
-                    mOutputText.setText("The following error occurred:\n"
-                            + mLastError.getMessage());
-                }
-            } else {
-                mOutputText.setText("Request cancelled.");
-            }
-        }
-    }
-}
+        mOutputText = new TextView(this);
+        mOutputText.setLayoutParams(tlp);
+        mOutputText.setPadding(16, 16, 16, 16);
+        mOutputText.setVerticalScrollBarEnabled(true);
+        mOutputText.setMovementMethod(new ScrollingMovementMethod());
+        mOutputText.setText(
+                "Click the \'" + BUTTON_TEXT +"\' button to test the API.");
+        activityLayout.addView(mOutputText);
+
+        mProgress = new ProgressDialog(this);
+        mProgress.setMessage("Calling Gmail API ...");*/
+
+//setContentView(activityLayout);
+
+// Initialize credentials and service object.
+
+//private TextView mOutputText;
+//private Button mCallApiButton;
+//ProgressDialog mProgress;
+//private static final String BUTTON_TEXT = "Call Gmail API";

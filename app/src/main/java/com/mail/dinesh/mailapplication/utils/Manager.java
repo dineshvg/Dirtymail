@@ -3,17 +3,15 @@ package com.mail.dinesh.mailapplication.utils;
 import android.util.Log;
 import android.util.SparseArray;
 
-import com.google.api.client.util.Base64;
 import com.google.api.services.gmail.model.Message;
-import com.google.api.services.gmail.model.MessagePart;
 import com.google.api.services.gmail.model.MessagePartHeader;
 import com.mail.dinesh.mailapplication.bo.DirtyMail;
-
-import org.json.JSONArray;
-import org.json.JSONObject;
+import com.mail.dinesh.mailapplication.bo.DirtyMailContent;
+import com.mail.dinesh.mailapplication.conf.Constants;
+import com.mail.dinesh.mailapplication.dbUtils.RealmDBTransactions;
+import com.mail.dinesh.mailapplication.googleUtils.DirtyMailHelper;
 
 import java.io.IOException;
-import java.lang.ref.SoftReference;
 import java.util.List;
 
 /**
@@ -24,7 +22,7 @@ public class Manager {
 
     public static final String TAG = Manager.class.getSimpleName();
 
-    public static void convertGmailToDirtyMail(Message fullMessage) throws IOException {
+    public static DirtyMail convertGmailToDirtyMail(Message fullMessage) throws IOException {
 
         DirtyMail mail = new DirtyMail();
         Log.d(TAG,"conversion ...");
@@ -57,19 +55,37 @@ public class Manager {
 
         //Get payload -> header and content from mail
         if(fullMessage.getPayload()!=null) {
-            MessagePart payLoad = fullMessage.getPayload();
             //Get content
-            getContent(payLoad);
+            DirtyMailContent content = DirtyMailHelper.getContent(fullMessage);
+            mail.setContent(content);
             //Get headers
-            if(payLoad.getHeaders()!=null) {
-                List<MessagePartHeader> headers = payLoad.getHeaders();
-                mail = getHeaderParts(mail,headers);
+            if(fullMessage.getPayload().getHeaders()!=null) {
+                List<MessagePartHeader> headers = fullMessage.getPayload().getHeaders();
+                mail = DirtyMailHelper.getHeaderParts(mail,headers);
                 Log.d(TAG,"dirty mail created");
             }
         }
+        return mail;
     }
 
-    private static void getContent(MessagePart payLoad) {
+    /*public static MimeMessage getMimeMsg(Gmail service, String userId, String messageId)
+            throws IOException, MessagingException {
+
+        MimeMessage email = null;
+        if(service!=null && !userId.equals("") && !messageId.equals("")) {
+            Message message = service.users().messages().get(userId, messageId)
+                    .setFormat(Constants.EMAIL_RAW_FORMAT).execute();
+            com.google.api.client.repackaged.org.apache.commons.codec.binary.Base64 base64Url = new com.google.api.client.repackaged.org.apache.commons.codec.binary.Base64(true);
+            byte[] emailBytes = base64Url.decodeBase64(message.getRaw());
+            Properties props = new Properties();
+            Session session = Session.getDefaultInstance(props, null);
+            email = new MimeMessage(session, new ByteArrayInputStream(emailBytes));
+        }
+        return email;
+    }*/
+}
+
+    /*private static void getContent(MessagePart payLoad) {
         String mimeType = payLoad.getMimeType();
         Log.d("New Mail","------------------------------------------------------");
         Log.d(TAG,"Mime type of payload: "+mimeType);
@@ -93,34 +109,9 @@ public class Manager {
                 }
             }
         }
-        /*if(mimeType.contains("mixed")) {
-            for (MessagePart part : parts) {
-                String partMimeType = part.getMimeType();
-                Log.d(TAG,"part mime "+part.getMimeType());
-                String partMailBody = "";
 
-                if(partMimeType.contains("plain")) {
-                    partMailBody = new String(Base64.decodeBase64(part.getBody()
-                            .getData().getBytes()));
-                    Log.d(TAG,partMailBody);
-                }
-                if(partMimeType.contains("html")) {
-                    partMailBody = new String(Base64.decodeBase64(part.getBody()
-                            .getData().getBytes()));
-                    Log.d(TAG,partMailBody);
-                }
-                if(partMimeType.contains("alternative")) {
-                    partMailBody = new String(Base64.decodeBase64(part.getBody()
-                            .getData().getBytes()));
-                    Log.d(TAG,partMailBody);
-                }
-                *//*mailBody = new String(Base64.decodeBase64(part.getBody()
-                        .getData().getBytes()));
-                Log.d(TAG,mailBody);*//*
-            }
-        }*/
 
-        if(mimeType.contains("plain")) {
+        if(mimeType.contains("alternative") || mimeType.contains("plain") || mimeType.contains("html")) {
             if(parts!=null) {
                 for (MessagePart part : parts) {
                     Log.d(TAG,"mimeType of part"+part.getMimeType());
@@ -131,72 +122,50 @@ public class Manager {
             }
         }
 
-        if(mimeType.contains("html")) {
-            if(parts!=null) {
-                for (MessagePart part : parts) {
-                    Log.d(TAG,"mimeType of part"+part.getMimeType());
-                    mailBody = new String(Base64.decodeBase64(part.getBody()
-                            .getData().getBytes()));
-                    Log.d(TAG,mailBody);
-                }
-            }
-        }
-
-        if (mimeType.contains("alternative")) {
-            if(parts!=null) {
-                for (MessagePart part : parts) {
-                    Log.d(TAG,"mimeType of part"+part.getMimeType());
-                    mailBody = new String(Base64.decodeBase64(part.getBody()
-                            .getData().getBytes()));
-                    Log.d(TAG,mailBody);
-                }
-            }
-        }
     }
 
     // Pull all the information that is required from the header which is required to be stored
     // inside the Realm Database.
     private static DirtyMail getHeaderParts(DirtyMail mail, List<MessagePartHeader> headers)
-             {
-                 try {
-                     for (MessagePartHeader header : headers) {
-                         String name = header.getName().trim();
+    {
+        try {
+            for (MessagePartHeader header : headers) {
+                String name = header.getName().trim();
 
-                         //Pull delivered-to address
-                         if(name.equals(Constants.DELIVERED_TO.trim())) {
-                             String value = header.getValue().trim();
-                             mail.setToAddress(value);
-                         }
+                //Pull delivered-to address
+                if(name.equals(Constants.DELIVERED_TO.trim())) {
+                    String value = header.getValue().trim();
+                    mail.setToAddress(value);
+                }
 
-                         //Pull reply-to address
-                         if(name.equals(Constants.REPLY_TO.trim())) {
-                             String value = header.getValue().trim();
-                             mail.setReplyToAddress(value);
-                         }
+                //Pull reply-to address
+                if(name.equals(Constants.REPLY_TO.trim())) {
+                    String value = header.getValue().trim();
+                    mail.setReplyToAddress(value);
+                }
 
-                         //Pull delivered-from address
-                         if(name.equals(Constants.FROM.trim())) {
-                             String value = header.getValue().trim();
-                             mail.setFromAddress(value);
-                         }
+                //Pull delivered-from address
+                if(name.equals(Constants.FROM.trim())) {
+                    String value = header.getValue().trim();
+                    mail.setFromAddress(value);
+                }
 
-                         //Pull date
-                         if(name.equals(Constants.DATE.trim())) {
-                             String value = header.getValue().trim();
-                             mail.setDate(value);
-                         }
+                //Pull date
+                if(name.equals(Constants.DATE.trim())) {
+                    String value = header.getValue().trim();
+                    mail.setDate(value);
+                }
 
-                         //Pull Subject
-                         if(name.equals(Constants.SUBJECT.trim())) {
-                             String value = header.getValue().trim();
-                             mail.setSubject(value);
-                         }
-                     }
+                //Pull Subject
+                if(name.equals(Constants.SUBJECT.trim())) {
+                    String value = header.getValue().trim();
+                    mail.setSubject(value);
+                }
+            }
 
-                 } catch (Exception e) {
-                     e.printStackTrace();
-                 }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
         return mail;
-    }
-}
+    }*/

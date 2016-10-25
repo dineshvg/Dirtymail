@@ -1,3 +1,7 @@
 <resources>
-    <string name="app_name">MailApplication</string>
+    <string name="app_name">DirtyMail</string>
+    <string name="name">For SeverRE</string>
+    <string name="tag_line">By Dinesh VG</string>
+    <string name="desc">Test App for SevenRE</string>
+    <string name="login">Login</string>
 </resources>

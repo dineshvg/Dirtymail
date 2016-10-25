@@ -21,30 +21,12 @@
     </item>
     <item
         is-multidex="true"
-        jar="/home/dinesh/.gradle/caches/modules-2/files-2.1/com.google.oauth-client/google-oauth-client/1.22.0/1d63f369ac78e4838a3197147012026e791008cb/google-oauth-client-1.22.0.jar"
+        jar="/home/dinesh/Android/Sdk/extras/android/m2repository/com/android/support/support-annotations/24.0.0/support-annotations-24.0.0.jar"
         jumboMode="true"
         optimize="true"
         revision="23.0.3"
-        sha1="1d63f369ac78e4838a3197147012026e791008cb">
-        <dex dex="/home/dinesh/GitHub Repo/Dirtymail/app/build/intermediates/transforms/dex/debug/folders/1000/10/google-oauth-client-1.22.0_e55fa9ae2c3ad3cb8930058d2bf7d935d79a183a/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/home/dinesh/.gradle/caches/modules-2/files-2.1/com.jakewharton/butterknife-annotations/8.4.0/ea392375cf9ff59234a82e7928a204215ccc98cd/butterknife-annotations-8.4.0.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="23.0.3"
-        sha1="ea392375cf9ff59234a82e7928a204215ccc98cd">
-        <dex dex="/home/dinesh/GitHub Repo/Dirtymail/app/build/intermediates/transforms/dex/debug/folders/1000/10/butterknife-annotations-8.4.0_fb16e0be01add157daff59c38a04fb9ba885d48a/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/home/dinesh/GitHub Repo/Dirtymail/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/9.0.2/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="23.0.3"
-        sha1="94d9cedd04b124aed044ac71c451a292856d854c">
-        <dex dex="/home/dinesh/GitHub Repo/Dirtymail/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-base-9.0.2_170af260109158d29b1a360ca0d485920fa5a7e6/classes.dex" />
+        sha1="2943c74db6d4346ab8c6531adac91fa05c137c40">
+        <dex dex="/home/dinesh/GitHub Repo/Dirtymail/app/build/intermediates/transforms/dex/debug/folders/1000/10/support-annotations-24.0.0_e20897fc00c274775f8d15e071dd2dfba9cff0dd/classes.dex" />
     </item>
     <item
         is-multidex="true"
@@ -54,24 +36,6 @@
         revision="23.0.3"
         sha1="40719ea6961c0cb6afaeb6a921eaa1f6afd4cfdf">
         <dex dex="/home/dinesh/GitHub Repo/Dirtymail/app/build/intermediates/transforms/dex/debug/folders/1000/10/jsr305-1.3.9_8a9e7d2b468bb06a4a79956355ab1d9aafeb2e9f/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/home/dinesh/.gradle/caches/modules-2/files-2.1/javax.activation/activation/1.1.1/485de3a253e23f645037828c07f1d7f1af40763a/activation-1.1.1.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="23.0.3"
-        sha1="485de3a253e23f645037828c07f1d7f1af40763a">
-        <dex dex="/home/dinesh/GitHub Repo/Dirtymail/app/build/intermediates/transforms/dex/debug/folders/1000/10/activation-1.1.1_ca202c86bfecba48f6e094e4236d148a41a13af1/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/home/dinesh/GitHub Repo/Dirtymail/app/build/intermediates/exploded-aar/com.android.support/support-v4/23.4.0/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="23.0.3"
-        sha1="67bd36ee9340ec7c254108936ad16b24bed160cc">
-        <dex dex="/home/dinesh/GitHub Repo/Dirtymail/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-v4-23.4.0_a14f56509cb7e8e5b3dbb5594ad5e7364fda8fb2/classes.dex" />
     </item>
     <item
         is-multidex="true"
@@ -97,7 +61,7 @@
         jumboMode="true"
         optimize="true"
         revision="23.0.3"
-        sha1="9dad348852c2c7079fceec9da7e2b0dddbdbff35">
+        sha1="8c966687d5c3a5878abcf6a1806916f58dd7f401">
         <dex dex="/home/dinesh/GitHub Repo/Dirtymail/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run_61ec12e1676d29a506f6467a8b846781d427b1a1/classes.dex" />
     </item>
     <item
@@ -111,30 +75,12 @@
     </item>
     <item
         is-multidex="true"
-        jar="/home/dinesh/.gradle/caches/modules-2/files-2.1/com.squareup.haha/haha/2.0.3/640a438d2d415c056ca6a673ac26b183b044e160/haha-2.0.3.jar"
+        jar="/home/dinesh/GitHub Repo/Dirtymail/app/build/intermediates/exploded-aar/com.android.support/recyclerview-v7/23.0.1/jars/classes.jar"
         jumboMode="true"
         optimize="true"
         revision="23.0.3"
-        sha1="640a438d2d415c056ca6a673ac26b183b044e160">
-        <dex dex="/home/dinesh/GitHub Repo/Dirtymail/app/build/intermediates/transforms/dex/debug/folders/1000/10/haha-2.0.3_6726924f242843533c1fa2c92223c4393647b675/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/home/dinesh/.gradle/caches/modules-2/files-2.1/com.google.http-client/google-http-client-jackson2/1.22.0/cc014d64ae11117e159d334c99d9c246d9b36f44/google-http-client-jackson2-1.22.0.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="23.0.3"
-        sha1="cc014d64ae11117e159d334c99d9c246d9b36f44">
-        <dex dex="/home/dinesh/GitHub Repo/Dirtymail/app/build/intermediates/transforms/dex/debug/folders/1000/10/google-http-client-jackson2-1.22.0_4461d85f783688229eb3dd9c3eeef8ee828e6b05/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/home/dinesh/GitHub Repo/Dirtymail/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-basement/9.0.2/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="23.0.3"
-        sha1="4022261eeea0d92eb2997a68d2c1f084a16abad9">
-        <dex dex="/home/dinesh/GitHub Repo/Dirtymail/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-basement-9.0.2_8c48a5e3d5066b9b0dc39693cd6a9c04b738f1cb/classes.dex" />
+        sha1="4356e230a981d1bbf047d848b91bc0d9b7c5bacc">
+        <dex dex="/home/dinesh/GitHub Repo/Dirtymail/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-recyclerview-v7-23.0.1_830acba201f245082133afc77d65ce864ae78849/classes.dex" />
     </item>
     <item
         is-multidex="true"
@@ -144,24 +90,6 @@
         revision="23.0.3"
         sha1="610b5d3346342e76b28564e2a3e5ccff6106fc73">
         <dex dex="/home/dinesh/GitHub Repo/Dirtymail/app/build/intermediates/transforms/dex/debug/folders/1000/10/google-api-services-gmail-v1-rev48-1.22.0_bfa87b79287a2a29fc4a566ca1f795f9f970df0d/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/home/dinesh/Android/Sdk/extras/android/m2repository/com/android/support/support-annotations/24.1.0/support-annotations-24.1.0.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="23.0.3"
-        sha1="8a23146e1a8c7cb4758e3d3f62449213f1e51f67">
-        <dex dex="/home/dinesh/GitHub Repo/Dirtymail/app/build/intermediates/transforms/dex/debug/folders/1000/10/support-annotations-24.1.0_ecc4c9db996682550e69d09f248c006996cd6a13/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/home/dinesh/.gradle/caches/modules-2/files-2.1/org.apache.commons/commons-email/1.3.3/c1a7133db9008fa1eae082e6158c3f4c128ec27e/commons-email-1.3.3.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="23.0.3"
-        sha1="c1a7133db9008fa1eae082e6158c3f4c128ec27e">
-        <dex dex="/home/dinesh/GitHub Repo/Dirtymail/app/build/intermediates/transforms/dex/debug/folders/1000/10/commons-email-1.3.3_8ccda0e9b0fc0882d889d3e50a1cf30aa248b2cc/classes.dex" />
     </item>
     <item
         is-multidex="true"
@@ -183,15 +111,6 @@
     </item>
     <item
         is-multidex="true"
-        jar="/home/dinesh/GitHub Repo/Dirtymail/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-tasks/9.0.2/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="23.0.3"
-        sha1="aec1bc54964a85d851c2c1b1cb7f90f7dbd755ab">
-        <dex dex="/home/dinesh/GitHub Repo/Dirtymail/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-tasks-9.0.2_0149f56c30f27ba7687a3ba5ed531b67b598de55/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
         jar="/home/dinesh/GitHub Repo/Dirtymail/app/build/intermediates/exploded-aar/pub.devrel/easypermissions/0.1.5/jars/classes.jar"
         jumboMode="true"
         optimize="true"
@@ -201,39 +120,12 @@
     </item>
     <item
         is-multidex="true"
-        jar="/home/dinesh/.gradle/caches/modules-2/files-2.1/com.squareup.leakcanary/leakcanary-analyzer/1.5/3277b0b0c2ace34a2edb5ddf9d1f67829561fb8f/leakcanary-analyzer-1.5.jar"
+        jar="/home/dinesh/GitHub Repo/Dirtymail/app/build/intermediates/exploded-aar/com.android.support/support-v4/24.0.0/jars/libs/internal_impl-24.0.0.jar"
         jumboMode="true"
         optimize="true"
         revision="23.0.3"
-        sha1="3277b0b0c2ace34a2edb5ddf9d1f67829561fb8f">
-        <dex dex="/home/dinesh/GitHub Repo/Dirtymail/app/build/intermediates/transforms/dex/debug/folders/1000/10/leakcanary-analyzer-1.5_ec72494c7314e564abdfaf394ec8d327da002228/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/home/dinesh/GitHub Repo/Dirtymail/app/build/intermediates/exploded-aar/com.android.support/support-v4/23.4.0/jars/libs/internal_impl-23.4.0.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="23.0.3"
-        sha1="ea3c07504d2c8f4b13aa17c45c1b68ed9c1c3674">
-        <dex dex="/home/dinesh/GitHub Repo/Dirtymail/app/build/intermediates/transforms/dex/debug/folders/1000/10/internal_impl-23.4.0_f16a6a4cc758f8ae6384ff45d6f126b31fe6c6d3/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/home/dinesh/.gradle/caches/modules-2/files-2.1/com.google.http-client/google-http-client-android/1.22.0/6d1e1a76a16a244ab2f41775791be1dd0ec2878a/google-http-client-android-1.22.0.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="23.0.3"
-        sha1="6d1e1a76a16a244ab2f41775791be1dd0ec2878a">
-        <dex dex="/home/dinesh/GitHub Repo/Dirtymail/app/build/intermediates/transforms/dex/debug/folders/1000/10/google-http-client-android-1.22.0_04eee677c63c8218ab0475d7737dd48d3ac1d30b/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/home/dinesh/GitHub Repo/Dirtymail/app/build/intermediates/exploded-aar/com.jakewharton/butterknife/8.4.0/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="23.0.3"
-        sha1="a07818a1ecabdb149998823429cce555af4b9cba">
-        <dex dex="/home/dinesh/GitHub Repo/Dirtymail/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.jakewharton-butterknife-8.4.0_dad2215bbd2262e87d5d20e8f6bf2c7c70af422a/classes.dex" />
+        sha1="fcaf463e10e69c1923ccf1edeba3b4196d239e00">
+        <dex dex="/home/dinesh/GitHub Repo/Dirtymail/app/build/intermediates/transforms/dex/debug/folders/1000/10/internal_impl-24.0.0_734ec2a47588466f3393d885a983653ad50f2d35/classes.dex" />
     </item>
     <item
         is-multidex="true"
@@ -273,15 +165,6 @@
     </item>
     <item
         is-multidex="true"
-        jar="/home/dinesh/GitHub Repo/Dirtymail/app/build/intermediates/incremental-classes/debug/instant-run-bootstrap.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="23.0.3"
-        sha1="619085cd47f68f43bdf56c862d97b7e5bbb6ba80">
-        <dex dex="/home/dinesh/GitHub Repo/Dirtymail/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run-bootstrap_319a8b006bdac5ae9a9ede0fdb06f221dd771d6e/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
         jar="/home/dinesh/.gradle/caches/modules-2/files-2.1/com.google.http-client/google-http-client/1.22.0/d441fc58329c4a4c067acec04ac361627f66ecc8/google-http-client-1.22.0.jar"
         jumboMode="true"
         optimize="true"
@@ -291,30 +174,84 @@
     </item>
     <item
         is-multidex="true"
-        jar="/home/dinesh/.gradle/caches/modules-2/files-2.1/com.squareup.leakcanary/leakcanary-watcher/1.5/288101b16513158c2923ad3fb6161d1452b65e73/leakcanary-watcher-1.5.jar"
+        jar="/home/dinesh/.gradle/caches/modules-2/files-2.1/com.google.oauth-client/google-oauth-client/1.22.0/1d63f369ac78e4838a3197147012026e791008cb/google-oauth-client-1.22.0.jar"
         jumboMode="true"
         optimize="true"
         revision="23.0.3"
-        sha1="288101b16513158c2923ad3fb6161d1452b65e73">
-        <dex dex="/home/dinesh/GitHub Repo/Dirtymail/app/build/intermediates/transforms/dex/debug/folders/1000/10/leakcanary-watcher-1.5_adddb58a17e22f7f165ea4477eb0df699a09c752/classes.dex" />
+        sha1="1d63f369ac78e4838a3197147012026e791008cb">
+        <dex dex="/home/dinesh/GitHub Repo/Dirtymail/app/build/intermediates/transforms/dex/debug/folders/1000/10/google-oauth-client-1.22.0_e55fa9ae2c3ad3cb8930058d2bf7d935d79a183a/classes.dex" />
     </item>
     <item
         is-multidex="true"
-        jar="/home/dinesh/GitHub Repo/Dirtymail/app/build/intermediates/exploded-aar/com.squareup.leakcanary/leakcanary-android/1.5/jars/classes.jar"
+        jar="/home/dinesh/GitHub Repo/Dirtymail/app/build/intermediates/exploded-aar/com.android.support/support-v4/24.0.0/jars/classes.jar"
         jumboMode="true"
         optimize="true"
         revision="23.0.3"
-        sha1="c7a2672b3122b897a0751f327929ae405ea02bf7">
-        <dex dex="/home/dinesh/GitHub Repo/Dirtymail/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.squareup.leakcanary-leakcanary-android-1.5_d627fffdf0058e215cbf15ead596d213f3719729/classes.dex" />
+        sha1="2f7e6e2dad1bccaf68a8820820adc6c0d5b96d37">
+        <dex dex="/home/dinesh/GitHub Repo/Dirtymail/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-v4-24.0.0_84c845ff140750074a99b8812a06a056d7de2a98/classes.dex" />
     </item>
     <item
         is-multidex="true"
-        jar="/home/dinesh/.gradle/caches/modules-2/files-2.1/javax.mail/mail/1.4.7/9add058589d5d85adeb625859bf2c5eeaaedf12d/mail-1.4.7.jar"
+        jar="/home/dinesh/GitHub Repo/Dirtymail/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/9.0.2/jars/classes.jar"
         jumboMode="true"
         optimize="true"
         revision="23.0.3"
-        sha1="9add058589d5d85adeb625859bf2c5eeaaedf12d">
-        <dex dex="/home/dinesh/GitHub Repo/Dirtymail/app/build/intermediates/transforms/dex/debug/folders/1000/10/mail-1.4.7_9e2bb6879e29f8d791ecef88ba5f72f4df251fd3/classes.dex" />
+        sha1="94d9cedd04b124aed044ac71c451a292856d854c">
+        <dex dex="/home/dinesh/GitHub Repo/Dirtymail/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-base-9.0.2_170af260109158d29b1a360ca0d485920fa5a7e6/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/dinesh/.gradle/caches/modules-2/files-2.1/com.google.http-client/google-http-client-jackson2/1.22.0/cc014d64ae11117e159d334c99d9c246d9b36f44/google-http-client-jackson2-1.22.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="cc014d64ae11117e159d334c99d9c246d9b36f44">
+        <dex dex="/home/dinesh/GitHub Repo/Dirtymail/app/build/intermediates/transforms/dex/debug/folders/1000/10/google-http-client-jackson2-1.22.0_4461d85f783688229eb3dd9c3eeef8ee828e6b05/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/dinesh/GitHub Repo/Dirtymail/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-basement/9.0.2/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="4022261eeea0d92eb2997a68d2c1f084a16abad9">
+        <dex dex="/home/dinesh/GitHub Repo/Dirtymail/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-basement-9.0.2_8c48a5e3d5066b9b0dc39693cd6a9c04b738f1cb/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/dinesh/GitHub Repo/Dirtymail/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-tasks/9.0.2/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="aec1bc54964a85d851c2c1b1cb7f90f7dbd755ab">
+        <dex dex="/home/dinesh/GitHub Repo/Dirtymail/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-tasks-9.0.2_0149f56c30f27ba7687a3ba5ed531b67b598de55/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/dinesh/GitHub Repo/Dirtymail/app/build/intermediates/exploded-aar/com.chauthai.swipereveallayout/swipe-reveal-layout/1.4.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="0383ea061ff92aff86cc8e899378170e19319a2c">
+        <dex dex="/home/dinesh/GitHub Repo/Dirtymail/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.chauthai.swipereveallayout-swipe-reveal-layout-1.4.0_7fd6b9128f27551eb215fe964603bff46b32920d/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/dinesh/.gradle/caches/modules-2/files-2.1/com.google.http-client/google-http-client-android/1.22.0/6d1e1a76a16a244ab2f41775791be1dd0ec2878a/google-http-client-android-1.22.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="6d1e1a76a16a244ab2f41775791be1dd0ec2878a">
+        <dex dex="/home/dinesh/GitHub Repo/Dirtymail/app/build/intermediates/transforms/dex/debug/folders/1000/10/google-http-client-android-1.22.0_04eee677c63c8218ab0475d7737dd48d3ac1d30b/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/dinesh/GitHub Repo/Dirtymail/app/build/intermediates/incremental-classes/debug/instant-run-bootstrap.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="048b60a543f65fc7be6bb2d336d3baff7a445eb1">
+        <dex dex="/home/dinesh/GitHub Repo/Dirtymail/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run-bootstrap_319a8b006bdac5ae9a9ede0fdb06f221dd771d6e/classes.dex" />
     </item>
 
 </items>

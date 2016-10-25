@@ -1,20 +1,18 @@
 package com.mail.dinesh.mailapplication.utils;
 
+import android.app.Activity;
+import android.content.Context;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
+import android.os.StrictMode;
 import android.util.Log;
 
 import com.google.api.client.repackaged.org.apache.commons.codec.binary.Base64;
+import com.mail.dinesh.mailapplication.bo.DirtyMailContent;
+import com.mail.dinesh.mailapplication.conf.Constants;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
+import java.util.ArrayList;
 import java.util.List;
-
-import javax.mail.BodyPart;
-import javax.mail.MessagingException;
-import javax.mail.Multipart;
-import javax.mail.Part;
-import javax.mail.internet.MimeMessage;
 
 //Source : https://github.com/skadyrov/GmailAPI-android-example/blob/master/app/src/main/java/
 // android/api/gmail/at/ac/ait/androidgmailapiexample/Util.java
@@ -25,6 +23,20 @@ import javax.mail.internet.MimeMessage;
 public class Util {
     
     private static final String TAG = Util.class.getSimpleName();
+
+    public static boolean isNetworkAvailable(Context context, Activity activity) {
+        ConnectivityManager connectivityManager = (ConnectivityManager) activity.getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo activeNetworkInfo = connectivityManager.getActiveNetworkInfo();
+        return activeNetworkInfo != null && activeNetworkInfo.isConnectedOrConnecting();
+    }
+
+    public static void removeStricMode() {
+
+        if (android.os.Build.VERSION.SDK_INT > 9) {
+            StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
+            StrictMode.setThreadPolicy(policy);
+        }
+    }
 
     public static String base64UrlDecode(String input) {
         if(input != null && !input.isEmpty()) {
@@ -58,7 +70,7 @@ public class Util {
         }
     }
 
-    public static void getContentFromMime(MimeMessage m) throws IOException {
+    /*public static void getContentFromMime(MimeMessage m) throws IOException {
         Object c = null;
         String contentType = "";
         String myMail = "";
@@ -82,7 +94,7 @@ public class Util {
                     thisLine = reader.readLine();
                 }
             }
-            /*if (c instanceof String) {
+            *//*if (c instanceof String) {
                 content = (String)c;
                 Log.d(TAG,content);
             } else if (c instanceof Multipart) {
@@ -90,12 +102,84 @@ public class Util {
                 BodyPart part = multipart.getBodyPart(0);
                 content = part.toString();
                 Log.d(TAG,content);
-            }*/
-        } /*catch (IOException e) {
+            }*//*
+        } *//*catch (IOException e) {
             e.printStackTrace();
-        }*/ catch (MessagingException e) {
+        }*//* catch (MessagingException e) {
             e.printStackTrace();
         }
         //return contentType;
+    }*/
+
+    public static DirtyMailContent placeMimeType(DirtyMailContent content, String mimeType) {
+
+        if(mimeType.contains(Constants.PLAIN)) {
+            content.setPlain(true);
+        } else if (mimeType.contains(Constants.HTML)) {
+            content.setHtml(true);
+        } else if(mimeType.contains(Constants.ALT)) {
+            content.setAlt(true);
+        } else if (mimeType.contains(Constants.MIX)) {
+            content.setMixed(true);
+        } else {
+            Log.d(TAG,"Dirty mail cannot process these mails in this version");
+        }
+        return content;
+    }
+
+    public static String getDate(String date) {
+        String givenDate = "";
+        if(date!=null) {
+            String[] dateArray = date.split(" ");
+            if(dateArray[0]!=null && dateArray[1]!=null && dateArray[2]!=null && dateArray[3]!=null) {
+                givenDate = dateArray[0]+" "+
+                        dateArray[1]+" "+dateArray[2]+" "+dateArray[3];
+            }
+        }
+        return givenDate;
+    }
+
+    public static List<String> parseContentToHtml(DirtyMailContent content) {
+        List<String> htmlData = new ArrayList<>();
+        Log.d(TAG,"Data parsing");
+        String[] partTypes = null;
+        String[] parts = null;
+
+        if(content.getPartTypes()!=null && content.getParts()!=null) {
+            if(content.isAlt() || content.isHtml()) {
+                partTypes = content.getPartTypes().split(Constants.BOUNDARY);
+                parts = content.getParts().split(Constants.BOUNDARY);
+            } /*else if (content.isPlain()) {
+                Log.d(TAG,content.getPartTypes());
+                Log.d(TAG,content.getParts());
+            }*/
+
+        }
+
+
+        if(content.isAlt()) {
+            if(partTypes!= null && parts!=null) {
+                if(parts[0]!=null)
+                    htmlData.add(parts[0]);
+                if(parts[1]!=null)
+                    htmlData.add(parts[1]);
+            }
+        } /*else if(content.isPlain()) {
+            if(partTypes!= null && parts!=null) {
+                if(parts[0]!=null)
+                    htmlData.add(parts[0]);
+                if(parts[1]!=null)
+                    htmlData.add(parts[1]);
+            }
+
+        }*/ else if (content.isHtml()) {
+            if(partTypes!= null && parts!=null) {
+                if(parts[0]!=null)
+                    htmlData.add(parts[0]);
+                if(parts[1]!=null)
+                    htmlData.add(parts[1]);
+            }
+        }
+        return htmlData;
     }
 }
