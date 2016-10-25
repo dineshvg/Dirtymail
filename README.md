@@ -17,10 +17,18 @@
 - Mails stored in local Realm database with different fields. (Dirtymail and DirtymailContent have the fields)
 - Mails can be deleted induvidually from the database.
 - Swipable mails.
+- Send mail screen. On trying to send mail we get a 400 bad request.
+- Service to call API every 15 minutes
+- Call API on swipe.
 
-### TODO
-- Delete mail from Gmail
-- User can reply to mail (make view for sending mail) (make dummy method that sends mail to any RESTApi, response will be error) (you can send email using Google API's, *#notMandatory*)
+### External Libraries used
+- Realm
+- Butterknife
+- SwipeRevealLayout
+
+### TODO (For later id required)
+- Delete mail from Gmail *#notMandatory*
+- (you can send email using Google API's, *#notMandatory*
 - Sync mails every 15 minutes and have a manual sync by scrolling top to bottom like Gmail
 To send mail, use HTTP post method to add all contents or simply make Rest call as shown below
 ```sh

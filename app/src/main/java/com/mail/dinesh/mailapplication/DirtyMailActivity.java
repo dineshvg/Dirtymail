@@ -1,11 +1,13 @@
 package com.mail.dinesh.mailapplication;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.webkit.WebView;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.mail.dinesh.mailapplication.bo.DirtyMail;
@@ -28,9 +30,11 @@ public class DirtyMailActivity extends AppCompatActivity {
     ImageView reply_to_button;
     TextView snippet;
     WebView content;
-
+    LinearLayout sendmail;
     DirtyMail mail;
     String msg_id;
+    String toAddress;
+    String fromAddress;
 
 
     @Override
@@ -58,15 +62,37 @@ public class DirtyMailActivity extends AppCompatActivity {
         to_address = (TextView) findViewById(R.id.to_address);
         snippet = (TextView) findViewById(R.id.snippet);
         content = (WebView) findViewById(R.id.content);
+        sendmail = (LinearLayout) findViewById(R.id.send_mail);
     }
 
     private void initListeners() {
+
+        sendmail.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent mailIntent = new Intent(DirtyMailActivity.this, SendMailActivity.class);
+                mailIntent.putExtra(Constants.FROM_ID,toAddress);
+                startActivity(mailIntent);
+            }
+        });
+
+        reply_to_button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent mailIntent = new Intent(DirtyMailActivity.this, SendMailActivity.class);
+                mailIntent.putExtra(Constants.FROM_ID,toAddress);
+                mailIntent.putExtra(Constants.REPLY_ID,fromAddress);
+                startActivity(mailIntent);
+            }
+        });
 
     }
 
     private void fillData() {
         try {
             mail = RealmDBTransactions.getMail(Realm.getDefaultInstance(),msg_id);
+            toAddress = mail.getToAddress();
+            fromAddress = mail.getFromAddress();
             if(mail!=null) {
                 subject.setText(mail.getSubject());
                 date.setText(Util.getDate(mail.getDate()));

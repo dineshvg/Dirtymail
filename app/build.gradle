@@ -39,8 +39,8 @@ dependencies {
     compile('com.google.apis:google-api-services-gmail:v1-rev48-1.22.0') {
         exclude group: 'org.apache.httpcomponents'
     }
-    //Include to get raw mail
-    //compile 'javax.mail:mail:1.4.7'
+    //Include to send mail
+    compile group: 'javax.mail', name: 'mail', version: '1.5.0-b01'
     //Include to get parsed email
     //compile 'org.apache.commons:commons-email:1.3.3'
     //Include ButterKnife library

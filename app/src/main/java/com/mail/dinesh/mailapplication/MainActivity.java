@@ -366,7 +366,7 @@ public class MainActivity extends AppCompatActivity implements EasyPermissions.P
                 }
                 if(threads.size()>0) {
                     Toast.makeText(getApplicationContext(),threads.size() +"threads",Toast.LENGTH_SHORT).show();
-                    //Log.d("Activity","in loop");
+                    Log.d("Activity","in loop");
                 }
             }
         }

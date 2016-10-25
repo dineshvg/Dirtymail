@@ -61,7 +61,7 @@
         jumboMode="true"
         optimize="true"
         revision="23.0.3"
-        sha1="8a80781db489c138a1d2deb42aaaa0a160b7a683">
+        sha1="9f88f416841f198856c7d9d03765d981f6db0e60">
         <dex dex="/home/dinesh/GitHub Repo/Dirtymail/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run_61ec12e1676d29a506f6467a8b846781d427b1a1/classes.dex" />
     </item>
     <item
@@ -90,6 +90,15 @@
         revision="23.0.3"
         sha1="610b5d3346342e76b28564e2a3e5ccff6106fc73">
         <dex dex="/home/dinesh/GitHub Repo/Dirtymail/app/build/intermediates/transforms/dex/debug/folders/1000/10/google-api-services-gmail-v1-rev48-1.22.0_bfa87b79287a2a29fc4a566ca1f795f9f970df0d/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/dinesh/.gradle/caches/modules-2/files-2.1/javax.mail/mail/1.5.0-b01/c128515e42609622ce3f7dc0b431026d80bdb688/mail-1.5.0-b01.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="c128515e42609622ce3f7dc0b431026d80bdb688">
+        <dex dex="/home/dinesh/GitHub Repo/Dirtymail/app/build/intermediates/transforms/dex/debug/folders/1000/10/mail-1.5.0-b01_5ebbcefc15ed24eabfd4da3dada9b05b94379d71/classes.dex" />
     </item>
     <item
         is-multidex="true"
@@ -201,6 +210,24 @@
     </item>
     <item
         is-multidex="true"
+        jar="/home/dinesh/.gradle/caches/modules-2/files-2.1/javax.activation/activation/1.1/e6cb541461c2834bdea3eb920f1884d1eb508b50/activation-1.1.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="e6cb541461c2834bdea3eb920f1884d1eb508b50">
+        <dex dex="/home/dinesh/GitHub Repo/Dirtymail/app/build/intermediates/transforms/dex/debug/folders/1000/10/activation-1.1_7488bf5d24b7bd53ac4a4a6723435cad1a3271b8/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/dinesh/GitHub Repo/Dirtymail/app/libs/activation.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="d1257cbff6faa44c1f325ae0d9413522d4644383">
+        <dex dex="/home/dinesh/GitHub Repo/Dirtymail/app/build/intermediates/transforms/dex/debug/folders/1000/2/activation_0bd27f751d899b472ce0271508b4d799b7eb96ed/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
         jar="/home/dinesh/.gradle/caches/modules-2/files-2.1/com.google.http-client/google-http-client-jackson2/1.22.0/cc014d64ae11117e159d334c99d9c246d9b36f44/google-http-client-jackson2-1.22.0.jar"
         jumboMode="true"
         optimize="true"
@@ -228,6 +255,15 @@
     </item>
     <item
         is-multidex="true"
+        jar="/home/dinesh/GitHub Repo/Dirtymail/app/libs/mail.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="428e267abff0d10802ccde86b915da2c20471160">
+        <dex dex="/home/dinesh/GitHub Repo/Dirtymail/app/build/intermediates/transforms/dex/debug/folders/1000/2/mail_f380c431b08f662ea16d30dd91e1c3f89d75aa84/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
         jar="/home/dinesh/GitHub Repo/Dirtymail/app/build/intermediates/exploded-aar/com.chauthai.swipereveallayout/swipe-reveal-layout/1.4.0/jars/classes.jar"
         jumboMode="true"
         optimize="true"
@@ -250,8 +286,17 @@
         jumboMode="true"
         optimize="true"
         revision="23.0.3"
-        sha1="00fd3a8ad34ee2657bf3af0234e0e71a9940f535">
+        sha1="3a3839977f0341d53c627496bd49af5ba152eb46">
         <dex dex="/home/dinesh/GitHub Repo/Dirtymail/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run-bootstrap_319a8b006bdac5ae9a9ede0fdb06f221dd771d6e/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/dinesh/GitHub Repo/Dirtymail/app/libs/additionnal.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="bd9e8dc422bb8c8405359947fe9f4282b49f57f4">
+        <dex dex="/home/dinesh/GitHub Repo/Dirtymail/app/build/intermediates/transforms/dex/debug/folders/1000/2/additionnal_ad27fc3ce9ead2f485a48dc7627eabdfc6b50c06/classes.dex" />
     </item>
 
 </items>

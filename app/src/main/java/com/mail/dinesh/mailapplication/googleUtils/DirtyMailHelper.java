@@ -120,6 +120,13 @@ public class DirtyMailHelper {
 
         return content;
     }
+
+    public static DirtyMail convertGmailToDirtyMail(Message message) {
+        DirtyMail email = new DirtyMail();
+        Log.d(TAG,"dirtyMail");
+
+        return email;
+    }
 }
 
     /*private static void commitMsgPartToContent(MessagePart part) {

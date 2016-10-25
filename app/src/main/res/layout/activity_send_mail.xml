@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_sen_mail"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.mail.dinesh.mailapplication.SendMailActivity">
+
+    <GridLayout
+        android:id="@+id/header_layout"
+        android:layout_width="match_parent"
+        android:layout_height="?actionBarSize"
+        android:rowCount="1"
+        android:columnCount="25"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="false"
+        android:orientation="horizontal"
+        android:background="@color/colorAccent">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="14dp"
+            android:textSize="20sp"
+            android:textScaleX="1.05"
+            android:textColor="@android:color/white"
+            android:layout_row="0"
+            android:layout_column="0"
+            android:text="Dirty Mails"/>
+
+        <LinearLayout
+            android:id="@+id/send_button"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:layout_centerHorizontal="true"
+            android:layout_row="0"
+            android:layout_column="24"
+            android:alpha="0.4"
+            android:background="@drawable/layout_orangewhite"
+            android:layout_marginBottom="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginRight="10dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:textSize="16sp"
+                android:paddingLeft="15dp"
+                android:paddingRight="15dp"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:textAlignment="center"
+                android:textColor="@color/colorAccent"
+                android:layout_row="0"
+                android:layout_column="24"
+                android:textAllCaps="true"
+                android:text="Send mail"/>
+
+        </LinearLayout>
+
+    </GridLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/header_layout">
+
+        <LinearLayout
+            android:id="@+id/header_mail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_below="@+id/header_layout">
+
+            <LinearLayout
+                android:id="@+id/from_layout"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/from"
+                    android:layout_width="50dp"
+                    android:layout_height="match_parent"
+                    style="@style/Content.Header.SubHeader"
+                    android:layout_weight="0.2"
+                    android:text="From"/>
+
+                <TextView
+                    android:id="@+id/from_address"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    style="@style/Content.Header.SubHeader"
+                    android:layout_weight="0.8"
+                    android:text="dineshvg1023@gmail.com"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/to_layout"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/to"
+                    android:layout_width="50dp"
+                    android:layout_height="match_parent"
+                    style="@style/Content.Header.SubHeader"
+                    android:layout_marginTop="8dp"
+                    android:layout_weight="0.2"
+                    android:text="To"/>
+
+                <EditText
+                    android:id="@+id/to_address"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    style="@style/Content.Header.SubHeader.Grey"
+                    android:layout_weight="0.8"
+                    android:hint="To Address"
+                    android:background="@android:color/transparent"/>
+            </LinearLayout>
+
+            <View
+                android:id="@+id/margin1"
+                android:layout_below="@id/to_layout"
+                android:layout_width="match_parent"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp"
+                android:layout_height="1dp"
+                android:background="@color/grey"/>
+
+            <LinearLayout
+                android:id="@+id/subject_layout"
+                android:layout_width="match_parent"
+                android:layout_height="80dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/subject_view"
+                    android:layout_width="100dp"
+                    android:layout_height="match_parent"
+                    style="@style/Content.Header.Gros"
+                    android:layout_marginTop="26dp"
+                    android:layout_weight="0.2"
+                    android:text="Subject"/>
+
+                <EditText
+                    android:id="@+id/subject"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    style="@style/Content.Header.Gros"
+                    android:layout_weight="0.8"
+                    android:hint="Subject of the Mail"
+                    android:background="@android:color/transparent"
+                    android:text=""/>
+
+            </LinearLayout>
+
+            <View
+                android:id="@+id/margin2"
+                android:layout_below="@id/to_layout"
+                android:layout_width="match_parent"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp"
+                android:layout_height="1dp"
+                android:background="@color/grey"/>
+
+            <LinearLayout
+                android:id="@+id/content_header"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:layout_marginLeft="10dp"
+                android:orientation="vertical">
+
+                <EditText
+                    android:id="@+id/content"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    style="@style/Content.Header.SubHeader"
+                    android:hint="Mail content"
+                    android:background="@android:color/transparent"
+                    android:text=""/>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+
+
+    </ScrollView>
+
+    <ProgressBar xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/progressBar"
+        android:visibility="invisible"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        style="@android:style/Widget.Holo.Light.ProgressBar.Large"/>
+    
+
+
+</RelativeLayout>

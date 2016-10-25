@@ -106,5 +106,7 @@ public class Constants {
      */
     public static final String BOUNDARY = "boundaryBetweenMailParts";
     public static final String MAIL_ID = "mail_id";
+    public static final String FROM_ID = "from_address";
+    public static final String REPLY_ID = "reply_address";
 
 }

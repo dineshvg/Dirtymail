@@ -1,20 +1,26 @@
 package com.mail.dinesh.mailapplication.googleUtils;
 
-import android.util.Log;
-
+import com.google.api.client.util.Base64;
 import com.google.api.services.gmail.Gmail;
 import com.google.api.services.gmail.model.ListThreadsResponse;
 import com.google.api.services.gmail.model.Message;
 import com.google.api.services.gmail.model.Thread;
+import com.mail.dinesh.mailapplication.SendMailActivity;
 import com.mail.dinesh.mailapplication.bo.DirtyMail;
 import com.mail.dinesh.mailapplication.conf.Constants;
 import com.mail.dinesh.mailapplication.dbUtils.RealmDBTransactions;
 import com.mail.dinesh.mailapplication.utils.Manager;
 
+import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Properties;
 
+import javax.mail.MessagingException;
+import javax.mail.Session;
+import javax.mail.internet.InternetAddress;
+import javax.mail.internet.MimeMessage;
 
 import io.realm.Realm;
 
@@ -109,7 +115,99 @@ public class GmailHelper {
         }
         return message;
     }
+
+
+    public Message sendMail(Gmail mService, String user, Realm myRealm, DirtyMail email, String bodyText, SendMailActivity activity) {
+        Message msg = null;
+        try {
+
+            MimeMessage mimeMessage = SendEmail.createEmail(email.getToAddress(),
+                    email.getFromAddress(),email.getSubject(),bodyText);
+
+            msg =  SendEmail.sendMessage(mService,Constants.USER,mimeMessage,activity);
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return  msg;
+    }
 }
+
+    /**
+     * Create a MimeMessage using the parameters provided.
+     *
+     * @param to email address of the receiver
+     * @param from email address of the sender, the mailbox account
+     * @param subject subject of the email
+     * @param bodyText body text of the email
+     * @return the MimeMessage to be used to send email
+     * @throws MessagingException
+     */
+    /*public static MimeMessage createEmail(String to,
+                                          String from,
+                                          String subject,
+                                          String bodyText)
+            throws MessagingException {
+
+        Properties props = new Properties();
+        Session session = Session.getDefaultInstance(props, null);
+        MimeMessage email = new MimeMessage(session);
+
+        try {
+            email.setFrom(new InternetAddress(from));
+            email.addRecipient(javax.mail.Message.RecipientType.TO,
+                    new InternetAddress(to));
+            email.setSubject(subject);
+            email.setText(bodyText);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return email;
+    }*/
+
+    /**
+     * Create a message from an email.
+     *
+     * @param emailContent Email to be set to raw of message
+     * @return a message containing a base64url encoded email
+     * @throws IOException
+     * @throws MessagingException
+     */
+    /*public static Message createMessageWithEmail(MimeMessage emailContent)
+            *//*throws MessagingException, IOException*//* {
+        Message message = new Message();
+        try {
+            ByteArrayOutputStream buffer = new ByteArrayOutputStream();
+            emailContent.writeTo(buffer);
+            byte[] bytes = buffer.toByteArray();
+            String encodedEmail = Base64.encodeBase64URLSafeString(bytes);
+            message.setRaw(encodedEmail);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return message;
+    }*/
+
+
+
+    /**
+     * Send an email from the user's mailbox to its recipient.
+     *
+     * @param service Authorized Gmail API instance.
+     * @param userId User's email address. The special value "me"
+     * can be used to indicate the authenticated user.
+     * @param email DirtyMail created.
+     * @param bodyText Text entered in the sent screen.
+     * @return The sent message
+     * @throws MessagingException
+     * @throws IOException
+     */
+
+
+
+
 
 /*MimeMessage msg = Manager.getMimeMsg(mService,Constants.USER,fullMessage.getId());
                 MimeMessageParser parser = new MimeMessageParser(msg);
