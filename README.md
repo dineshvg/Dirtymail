@@ -5,16 +5,23 @@
 - Logo generated using https://logomakr.com/
 - Dotted metalbackground from freepik.com. Designed by Layerace / Freepik. License allowed for commercial use.
 
-### Tasks
+### Screens
 
-- Login screen (Use Google API for login, like login via Google Plus, we will use Gmail for testing)
-- Fetch inbox mails of the signed in Gmail account holder (Fetch recent 50 mails)
-- Store emails in local database with fields like id, sender name, sender mail id, subject, content, etc (it would be nice to see if Realm is used as db, #notRequired) (fun would be if you can download attachments, *#notRequired*)
-- User can delete mail (delete mails from local db) (it would be nice if it is removed from gmail account also, *#notRequired*)
+- Splash screen that stays for 2 seconds before opening the login screen.
+- Login screen that asks for the google login using Gmail API for the first time.
+- Mail list screen that shows 50 conversations in a Recycler view.(A conversation can have many mails)
+- Detailed mail screen that shows the body of the mail along with other information similar to Google mail.
+
+### Functions 
+- Fetching mails with Label:INBOX and showing them.
+- Mails stored in local Realm database with different fields. (Dirtymail and DirtymailContent have the fields)
+- Mails can be deleted induvidually from the database.
+- Swipable mails.
+
+### TODO
+- Delete mail from Gmail
 - User can reply to mail (make view for sending mail) (make dummy method that sends mail to any RESTApi, response will be error) (you can send email using Google API's, *#notMandatory*)
-- List item which is showing email should be swipeable like Gmail, user can delete & reply from there
 - Sync mails every 15 minutes and have a manual sync by scrolling top to bottom like Gmail
-
 To send mail, use HTTP post method to add all contents or simply make Rest call as shown below
 ```sh
 http://www.random-server.com/send?subject=MySubject&sender=temp@var.com&timeStamp=11112342234&body=MyTrialMail
