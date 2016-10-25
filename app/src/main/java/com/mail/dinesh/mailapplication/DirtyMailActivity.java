@@ -39,7 +39,8 @@ public class DirtyMailActivity extends AppCompatActivity {
         Bundle b = getIntent().getExtras();
         msg_id = b.getString(Constants.MAIL_ID);
         if(msg_id!=null) {
-            Log.d(TAG,"ID of the mail being shown here is : "+msg_id);
+            Log.i(TAG,"id :"+msg_id);
+           // Log.d(TAG,"ID of the mail being shown here is : "+msg_id);
             setContentView(R.layout.activity_dirty_mail);
             init();
             initListeners();
@@ -84,7 +85,8 @@ public class DirtyMailActivity extends AppCompatActivity {
                         if(mail.getMessageSnippet()!=null) {
                             snippet.setVisibility(View.VISIBLE);
                             content.setVisibility(View.INVISIBLE);
-                            snippet.setText(mail.getMessageSnippet());
+                            snippet.setText(mail.getContent().getParts());
+                            //content.loadData(mail.getContent().getParts(),"text/plain; charset=utf-8", "UTF-8");
                         }
                         /*if(data.get(1) !=null)
                             content.loadData(data.get(1), "text/html; charset=utf-8", "UTF-8");

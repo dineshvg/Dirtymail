@@ -69,10 +69,6 @@ public class DirtyMailHelper {
     public static DirtyMailContent getContent(Message msg) {
 
         DirtyMailContent content = new DirtyMailContent();
-        Log.d("Next mail",
-                "-----------------------------------------------------------------------------------" +
-                        "-----------------------------------------------------------------------------------" +
-                        "-----------------------------------------------------------------------------------");
         MessagePart payLoad = msg.getPayload();
         String mimeType = payLoad.getMimeType();
         content = Util.placeMimeType(content,mimeType);
@@ -82,7 +78,19 @@ public class DirtyMailHelper {
         String mailBodyParts = "";
         String mailBodyMimeTypes = "";
 
-        if(mimeType.contains(Constants.ALT) || mimeType.contains(Constants.PLAIN)
+        if(mimeType.contains(Constants.PLAIN)) {
+            //Log.d(TAG,msg.toString());
+            if(msg.getPayload()!=null) {
+                if(msg.getPayload().getBody()!=null) {
+                    if(msg.getPayload().getBody().getData()!=null) {
+                        String data = Util.base64UrlDecode(msg.getPayload().getBody().getData());
+                        content.setParts(data);
+                        content.setNumOfParts(1);
+                        content.setPartTypes(mimeType);
+                    }
+                }
+            }
+        } else if(mimeType.contains(Constants.ALT)
                 || mimeType.contains(Constants.HTML)) {
             if(parts!=null) {
                 for (MessagePart part : parts) {
@@ -102,16 +110,19 @@ public class DirtyMailHelper {
                 }
                 content.setParts(mailBodyParts);
                 content.setPartTypes(mailBodyMimeTypes);
-                content.setNumOfParts(parts.size());
+                if(parts!=null)
+                    content.setNumOfParts(parts.size());
             }
-        } /*else if (mimeType.contains(Constants.MIX)) {
+        } //TODO : Parse Mix type mails and show them
+        /*else if (mimeType.contains(Constants.MIX)) {
             parse(parts,content, mailBodyParts, mailBodyMimeTypes);
         }*/
 
         return content;
     }
+}
 
-    private static void commitMsgPartToContent(MessagePart part) {
+    /*private static void commitMsgPartToContent(MessagePart part) {
 
         if(part!=null) {
             if(part.getBody()!=null) {
@@ -161,7 +172,7 @@ public class DirtyMailHelper {
                 }
             }
         }
-    }
+    }*/
 
 
 
@@ -203,7 +214,7 @@ public class DirtyMailHelper {
         }
     }*/
 
-}
+
 
 /*if(mimeType.contains("html")) {
             if(parts!=null) {

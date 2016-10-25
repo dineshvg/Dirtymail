@@ -29,7 +29,7 @@ public class RealmDBTransactions {
             mailObj = realm.copyToRealmOrUpdate(mail);
             realm.commitTransaction();
             //Log.d(TAG, mailObj.getId()+"");
-            Log.d(TAG,"transaction done");
+            //Log.d(TAG,"transaction done");
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -52,9 +52,9 @@ public class RealmDBTransactions {
     public static DirtyMail getMail(Realm realm, String msgId) {
         RealmResults<DirtyMail> results = realm.where(DirtyMail.class).findAll();
         DirtyMail mail = results .where().equalTo("messageId",msgId).findFirst();
-        if(mail!=null) {
+        /*if(mail!=null) {
             Log.d(TAG,mail.getDate());
-        }
+        }*/
         return mail;
     }
 
@@ -82,7 +82,7 @@ public class RealmDBTransactions {
                     RealmResults<DirtyMail> results = realm.where(DirtyMail.class).findAll();
                     for(DirtyMail c:results) {
                         dirtyMails.add(c);
-                        Log.d(TAG, c.getFromAddress());
+                        //Log.d(TAG, c.getFromAddress());
                     }
                 }
             });

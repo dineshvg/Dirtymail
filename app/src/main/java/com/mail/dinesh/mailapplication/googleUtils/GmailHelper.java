@@ -41,7 +41,7 @@ public class GmailHelper {
         List<Thread> threads = new ArrayList<Thread>();
         while(response.getThreads() != null) {
             threads.addAll(response.getThreads());
-            Log.d(TAG,"size of thread "+threads.size());
+            //Log.d(TAG,"size of thread "+threads.size());
             if(threads.size()>=Integer.parseInt(Constants.MAX_NUMBER)){
                 break;
             }

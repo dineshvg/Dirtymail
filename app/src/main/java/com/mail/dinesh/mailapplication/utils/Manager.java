@@ -25,15 +25,15 @@ public class Manager {
     public static DirtyMail convertGmailToDirtyMail(Message fullMessage) throws IOException {
 
         DirtyMail mail = new DirtyMail();
-        Log.d(TAG,"conversion ...");
+        //Log.d(TAG,"conversion ...");
         //Set mail ID
         if(fullMessage.getId()!=null || !fullMessage.getId().equals("")) {
-            Log.d(TAG,"msg id : "+fullMessage.getId());
+            //Log.d(TAG,"msg id : "+fullMessage.getId());
             mail.setMessageId(fullMessage.getId());
         }
         //Set thread ID
         if(fullMessage.getThreadId()!=null || !fullMessage.getThreadId().equals("")) {
-            Log.d(TAG,"thread id : "+fullMessage.getThreadId());
+           //Log.d(TAG,"thread id : "+fullMessage.getThreadId());
             mail.setThreadId(fullMessage.getThreadId());
         }
         //Set read, unread, sent label and also set important or not important label
@@ -42,14 +42,14 @@ public class Manager {
             SparseArray<String> labelMap = Constants.labelChecker();
             String label = labelMap.get(labelNum);
             if(label!=null || !label.equals("")) {
-                Log.d(TAG, "mail label :"+label);
+                //Log.d(TAG, "mail label :"+label);
                 mail.setReadLabel(label);
             }
             mail.setImportant(Util.isImportantMail(fullMessage.getLabelIds()));
         }
         //Set mail Snippet
         if(fullMessage.getSnippet()!=null || !fullMessage.getSnippet().equals("")) {
-            Log.d(TAG,"Snippet :"+fullMessage.getSnippet());
+            //Log.d(TAG,"Snippet :"+fullMessage.getSnippet());
             mail.setMessageSnippet(fullMessage.getSnippet());
         }
 
@@ -62,7 +62,7 @@ public class Manager {
             if(fullMessage.getPayload().getHeaders()!=null) {
                 List<MessagePartHeader> headers = fullMessage.getPayload().getHeaders();
                 mail = DirtyMailHelper.getHeaderParts(mail,headers);
-                Log.d(TAG,"dirty mail created");
+                //Log.d(TAG,"dirty mail created");
             }
         }
         return mail;

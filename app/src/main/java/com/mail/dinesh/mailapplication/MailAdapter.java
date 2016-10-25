@@ -128,7 +128,7 @@ public class MailAdapter extends RecyclerView.Adapter {
                 public void onClick(View v) {
                     mDataSet.remove(getAdapterPosition());
                     DirtyMail mailToDelete = mDataSet.get(getAdapterPosition());
-                    Log.d("Mail to delete", mailToDelete.getMessageId());
+                    //Log.d("Mail to delete", mailToDelete.getMessageId());
                     RealmDBTransactions.deleteData(Realm.getDefaultInstance(),mailToDelete.getMessageId());
                     notifyItemRemoved(getAdapterPosition());
                 }

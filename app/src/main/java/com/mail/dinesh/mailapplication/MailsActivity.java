@@ -31,7 +31,7 @@ public class MailsActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        Log.d(TAG,"obtained mails");
+        //Log.d(TAG,"obtained mails");
         setContentView(R.layout.activity_mails);
         init();
         initListeners();
@@ -53,8 +53,8 @@ public class MailsActivity extends AppCompatActivity {
         select_button_colour = (LinearLayout) findViewById(R.id.select_button_colour);
         dirtyMails =  RealmDBTransactions.showAllMails();
         DirtyMail mail = dirtyMails.get(0);
-        Log.d(TAG,mail.getMessageSnippet());
-        Log.d(TAG,"mails retrieved");
+        //Log.d(TAG,mail.getMessageSnippet());
+        //Log.d(TAG,"mails retrieved");
     }
 
     private List<String> createList(int n) {

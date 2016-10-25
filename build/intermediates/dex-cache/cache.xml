@@ -61,7 +61,7 @@
         jumboMode="true"
         optimize="true"
         revision="23.0.3"
-        sha1="8c966687d5c3a5878abcf6a1806916f58dd7f401">
+        sha1="8a80781db489c138a1d2deb42aaaa0a160b7a683">
         <dex dex="/home/dinesh/GitHub Repo/Dirtymail/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run_61ec12e1676d29a506f6467a8b846781d427b1a1/classes.dex" />
     </item>
     <item
@@ -250,7 +250,7 @@
         jumboMode="true"
         optimize="true"
         revision="23.0.3"
-        sha1="048b60a543f65fc7be6bb2d336d3baff7a445eb1">
+        sha1="00fd3a8ad34ee2657bf3af0234e0e71a9940f535">
         <dex dex="/home/dinesh/GitHub Repo/Dirtymail/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run-bootstrap_319a8b006bdac5ae9a9ede0fdb06f221dd771d6e/classes.dex" />
     </item>
 

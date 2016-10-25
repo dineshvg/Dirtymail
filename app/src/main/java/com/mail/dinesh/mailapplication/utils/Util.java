@@ -122,6 +122,7 @@ public class Util {
         } else if (mimeType.contains(Constants.MIX)) {
             content.setMixed(true);
         } else {
+            //TODO : Processing later
             Log.d(TAG,"Dirty mail cannot process these mails in this version");
         }
         return content;
@@ -141,7 +142,7 @@ public class Util {
 
     public static List<String> parseContentToHtml(DirtyMailContent content) {
         List<String> htmlData = new ArrayList<>();
-        Log.d(TAG,"Data parsing");
+        //Log.d(TAG,"Data parsing");
         String[] partTypes = null;
         String[] parts = null;
 
