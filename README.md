@@ -10,22 +10,22 @@
 - Login screen that asks for the google login using Gmail API for the first time.
 - Mail list screen that shows 50 conversations in a Recycler view.(A conversation can have many mails)
 - Detailed mail screen that shows the body of the mail along with other information similar to Google mail.
+- Send mail shows the place where we can type our mail.
 
 ### Functions 
 - Fetching mails with Label:INBOX and showing them.
 - Mails stored in local Realm database with different fields. (Dirtymail and DirtymailContent have the fields)
-- Mails can be deleted induvidually from the database.
+- Mails can be deleted induvidually from the database. (Local delete) (Error in recycler view, needs to be fixed)
 - Swipable mails.
 - Send mail screen. On trying to send mail we get a 400 bad request.
-- Service to call API every 15 minutes
-- Call API on swipe.
+- Background Service to call API every 15 minutes.
 
 ### External Libraries used
 - Realm
-- Butterknife
 - SwipeRevealLayout
 
 ### TODO (For later id required)
+- Call API on swipe.
 - Delete mail from Gmail *#notMandatory*
 - (you can send email using Google API's, *#notMandatory*
 - Sync mails every 15 minutes and have a manual sync by scrolling top to bottom like Gmail
