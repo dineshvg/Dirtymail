@@ -16,8 +16,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="88dc09c6-ffc3-46b5-887f-afea56d22bc4" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/app.iml" afterPath="$PROJECT_DIR$/app/app.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/mail/dinesh/mailapplication/conf/Constants.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/mail/dinesh/mailapplication/conf/Constants.java" />
     </list>
     <ignored path="Dirtymail.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -127,7 +126,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="build.gradle" pinned="false" current-in-tab="true">
+      <file leaf-file-name="build.gradle" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/build.gradle">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="464">
@@ -147,11 +146,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Constants.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Constants.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/mail/dinesh/mailapplication/conf/Constants.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="360">
-              <caret line="26" column="7" selection-start-line="26" selection-start-column="7" selection-end-line="26" selection-end-column="7" />
+            <state relative-caret-position="234">
+              <caret line="20" column="46" selection-start-line="20" selection-start-column="46" selection-end-line="20" selection-end-column="46" />
               <folding />
             </state>
           </provider>
@@ -1885,13 +1884,13 @@
         <option value="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/mail/dinesh/mailapplication/service/UpdateDirtyMail.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/mail/dinesh/mailapplication/googleUtils/GmailHelper.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/mail/dinesh/mailapplication/conf/Constants.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/mail/dinesh/mailapplication/utils/SharedPrefs.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/mail/dinesh/mailapplication/service/UpdateMailService.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/mail/dinesh/mailapplication/conf/Configuration.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/mail/dinesh/mailapplication/activity/MailsActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_mails.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/mail/dinesh/mailapplication/activity/MainActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/mail/dinesh/mailapplication/conf/Constants.java" />
       </list>
     </option>
   </component>
@@ -1982,6 +1981,28 @@
             <PATH_ELEMENT>
               <option name="myItemId" value="mailapplication" />
               <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Dirtymail" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidSourceTypeNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="mailapplication" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="conf" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
           <PATH>
@@ -2735,14 +2756,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/mail/dinesh/mailapplication/conf/Constants.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="26" column="7" selection-start-line="26" selection-start-column="7" selection-end-line="26" selection-end-column="7" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/mail/dinesh/mailapplication/conf/Configuration.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="288">
@@ -2818,6 +2831,14 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="464">
           <caret line="43" column="37" selection-start-line="43" selection-start-column="37" selection-end-line="43" selection-end-column="37" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/mail/dinesh/mailapplication/conf/Constants.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="234">
+          <caret line="20" column="46" selection-start-line="20" selection-start-column="46" selection-end-line="20" selection-end-column="46" />
           <folding />
         </state>
       </provider>
