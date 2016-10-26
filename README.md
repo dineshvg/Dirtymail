@@ -42,14 +42,11 @@ https://drive.google.com/file/d/0B91v01fv4vZmb0N6ZkwzV0hzV28/view?usp=sharing
 - SwipeRevealLayout
 
 ### TODO (For later id required)
-- Call API on swipe.
+
 - Delete mail from Gmail *#notMandatory*
 - (you can send email using Google API's, *#notMandatory*
 - Have a manual sync by scrolling top to bottom like Gmail
-To send mail, use HTTP post method to add all contents or simply make Rest call as shown below
-```sh
-http://www.random-server.com/send?subject=MySubject&sender=temp@var.com&timeStamp=11112342234&body=MyTrialMail
-```
+
 
 ### Tips
 - Use Github to find some useful code or library
