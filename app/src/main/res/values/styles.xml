@@ -17,8 +17,19 @@
         <item name="android:textAllCaps">false</item>
     </style>
 
+    <style name="PrimaryColor.Text.20" parent="android:Widget">
+        <item name="android:textColor">@color/colorPrimary</item>
+        <item name="android:textSize">20sp</item>
+    </style>
+
+    <style name="PrimaryColor.Text.15" parent="android:Widget">
+        <item name="android:textColor">@color/colorPrimary</item>
+        <item name="android:textSize">15sp</item>
+    </style>
+
     <style name="White.Text" parent="android:Widget">
         <item name="android:textColor">#FFFFFF</item>
+        <item name="android:textSize">20sp</item>
     </style>
 
     <style name="White.View" parent="android:Widget">

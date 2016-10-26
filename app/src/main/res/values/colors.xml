@@ -1,13 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <drawable name="colorPrimaryDrawable">#ff5722</drawable>
+    <drawable name="colorPrimaryDrawable">#2dbe60</drawable>
     <drawable name="colorAccentDrawable">#ff6d00</drawable>
     <drawable name="colorPrimaryDarkDrawable">#b73b14</drawable>
-    <color name="colorPrimary">#FF952D</color>
-    <color name="colorPrimaryDark">#c8000000</color>
-    <color name="colorAccent">#FF952D</color>
+    <color name="colorPrimaryLight">#FF93D4AA</color>
+    <color name="colorPrimary">#2dbe60</color>
+    <color name="colorPrimaryDark">#1f8543</color>
+    <color name="colorAccent">#0d391c</color>
     <color name="opaqueBlack">#29000000</color>
     <color name="grey">#FF878686</color>
+    <color name="lightgrey">#eff2f3</color>
     <color name="white">#FFFFFF</color>
     <color name="black">#000000</color>
 </resources>

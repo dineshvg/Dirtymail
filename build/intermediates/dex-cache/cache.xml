@@ -61,7 +61,7 @@
         jumboMode="true"
         optimize="true"
         revision="23.0.3"
-        sha1="9f88f416841f198856c7d9d03765d981f6db0e60">
+        sha1="34d31564ec5d060abe92e3a4e1e1742155868e6e">
         <dex dex="/home/dinesh/GitHub Repo/Dirtymail/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run_61ec12e1676d29a506f6467a8b846781d427b1a1/classes.dex" />
     </item>
     <item
@@ -108,6 +108,15 @@
         revision="23.0.3"
         sha1="0244350c0c845c583717ade13f5666a452fd0cfa">
         <dex dex="/home/dinesh/GitHub Repo/Dirtymail/app/build/intermediates/transforms/dex/debug/folders/1000/10/google-api-client-1.22.0_43200ba80c8314defe69f4a36d15b0931e56f9d6/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/dinesh/GitHub Repo/Dirtymail/app/build/intermediates/exploded-aar/com.badoo.mobile/android-weak-handler/1.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="7a2dafc6ef58bed3ca9a9a1fb5c5a42624b379a3">
+        <dex dex="/home/dinesh/GitHub Repo/Dirtymail/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.badoo.mobile-android-weak-handler-1.1_2cd3530c6b68c2e4298032d2deb865e9ac2f8d3a/classes.dex" />
     </item>
     <item
         is-multidex="true"
@@ -286,7 +295,7 @@
         jumboMode="true"
         optimize="true"
         revision="23.0.3"
-        sha1="3a3839977f0341d53c627496bd49af5ba152eb46">
+        sha1="7f1a3274f401aba6401b8750e143428c30a880bb">
         <dex dex="/home/dinesh/GitHub Repo/Dirtymail/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run-bootstrap_319a8b006bdac5ae9a9ede0fdb06f221dd771d6e/classes.dex" />
     </item>
     <item

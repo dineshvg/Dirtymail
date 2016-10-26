@@ -4,7 +4,7 @@
     android:id="@+id/activity_sen_mail"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.mail.dinesh.mailapplication.SendMailActivity">
+    tools:context="com.mail.dinesh.mailapplication.activity.SendMailActivity">
 
     <GridLayout
         android:id="@+id/header_layout"
@@ -38,7 +38,7 @@
             android:layout_row="0"
             android:layout_column="24"
             android:alpha="0.4"
-            android:background="@drawable/layout_orangewhite"
+            android:background="@drawable/layout_tinge_green"
             android:layout_marginBottom="8dp"
             android:layout_marginTop="8dp"
             android:layout_marginRight="10dp">

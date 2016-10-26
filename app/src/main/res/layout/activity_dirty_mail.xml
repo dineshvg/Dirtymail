@@ -4,7 +4,7 @@
     android:id="@+id/activity_dirty_mail"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.mail.dinesh.mailapplication.DirtyMailActivity">
+    tools:context="com.mail.dinesh.mailapplication.activity.DirtyMailActivity">
 
     <GridLayout
         android:id="@+id/header_layout"
@@ -17,14 +17,12 @@
         android:orientation="horizontal"
         android:background="@color/colorAccent">
 
-        <TextView
+        <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
             android:layout_marginLeft="14dp"
-            android:textSize="20sp"
-            android:textScaleX="1.05"
-            android:textColor="@android:color/white"
+            android:src="@mipmap/ic_launcher"
             android:layout_row="0"
             android:layout_column="0"
             android:text="Dirty Mails"/>
@@ -38,7 +36,7 @@
             android:layout_row="0"
             android:layout_column="24"
             android:alpha="0.4"
-            android:background="@drawable/layout_orangewhite"
+            android:background="@drawable/layout_tinge_green"
             android:layout_marginBottom="8dp"
             android:layout_marginTop="8dp"
             android:layout_marginRight="10dp">
@@ -52,9 +50,11 @@
                 android:layout_gravity="center"
                 android:gravity="center"
                 android:textAlignment="center"
-                android:textColor="@color/colorAccent"
+                android:background="@drawable/layout_background"
                 android:layout_row="0"
                 android:layout_column="24"
+                android:textStyle="bold"
+                android:textColor="@color/black"
                 android:textAllCaps="true"
                 android:text="New mail"/>
 
@@ -65,8 +65,7 @@
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
+        android:background="@color/lightgrey"
         android:layout_below="@+id/header_layout">
 
         <RelativeLayout
@@ -79,6 +78,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
                 android:layout_marginTop="10dp">
 
                 <LinearLayout
@@ -93,6 +94,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         style="@style/Content.Header.Gros"
+                        android:layout_marginBottom="5dp"
                         android:textColor="@color/black" />
 
                 </LinearLayout>
@@ -130,6 +132,8 @@
                 android:layout_below="@id/margin1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
                 android:orientation="vertical">
 
                 <LinearLayout
@@ -143,13 +147,13 @@
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         style="@style/Content.Header.SubHeader"
+                        android:layout_marginBottom="5dp"
                         android:layout_weight="0.98"/>
 
                     <ImageView
                         android:id="@+id/reply_to_button"
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
-                        android:layout_weight="0.02"
+                        android:layout_width="60dp"
+                        android:layout_height="50dp"
                         android:src="@drawable/reply_to"/>
 
                 </LinearLayout>
@@ -164,6 +168,7 @@
                         android:id="@+id/to_address"
                         android:layout_width="match_parent"
                         style="@style/Content.Header.SubHeader.Boldgrey"
+                        android:layout_marginBottom="5dp"
                         android:layout_height="20dp" />
 
                 </LinearLayout>
@@ -184,6 +189,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_below="@+id/margin2"
+                android:layout_marginTop="2dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
                 android:orientation="vertical">
 
                 <TextView

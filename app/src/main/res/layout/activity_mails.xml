@@ -5,7 +5,8 @@
     android:id="@+id/activity_mails"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.mail.dinesh.mailapplication.MailsActivity">
+    android:background="@color/lightgrey"
+    tools:context="com.mail.dinesh.mailapplication.activity.MailsActivity">
 
     <GridLayout
         android:id="@+id/header_layout"
@@ -18,14 +19,12 @@
         android:orientation="horizontal"
         android:background="@color/colorAccent">
 
-        <TextView
+        <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
             android:layout_marginLeft="14dp"
-            android:textSize="20sp"
-            android:textScaleX="1.05"
-            android:textColor="@android:color/white"
+            android:src="@mipmap/ic_launcher"
             android:layout_row="0"
             android:layout_column="0"
             android:text="Dirty Mails"/>
@@ -38,13 +37,14 @@
             android:layout_centerHorizontal="true"
             android:layout_row="0"
             android:layout_column="24"
-            android:alpha="0.4"
-            android:background="@drawable/layout_orangewhite"
+            android:alpha="0.8"
+            android:background="@drawable/layout_tinge_green"
             android:layout_marginBottom="8dp"
             android:layout_marginTop="8dp"
             android:layout_marginRight="10dp">
 
             <TextView
+                android:id="@+id/service_button"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:textSize="16sp"
@@ -53,11 +53,11 @@
                 android:layout_gravity="center"
                 android:gravity="center"
                 android:textAlignment="center"
-                android:textColor="@color/colorAccent"
+                android:textColor="@color/white"
                 android:layout_row="0"
                 android:layout_column="24"
                 android:textAllCaps="true"
-                android:text="Refresh"/>
+                android:text="New Mail"/>
 
         </LinearLayout>
 
@@ -74,6 +74,7 @@
     <android.support.v7.widget.RecyclerView
         android:layout_below="@+id/header_layout"
         android:id="@+id/recyclerView"
+        android:layout_marginTop="10dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 

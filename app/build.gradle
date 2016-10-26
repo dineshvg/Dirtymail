@@ -41,6 +41,8 @@ dependencies {
     }
     //Include to send mail
     compile group: 'javax.mail', name: 'mail', version: '1.5.0-b01'
+    //Android memory efficient handler
+    compile 'com.badoo.mobile:android-weak-handler:1.1'
     //Include to get parsed email
     //compile 'org.apache.commons:commons-email:1.3.3'
     //Include ButterKnife library

@@ -10,7 +10,7 @@ import com.google.api.client.repackaged.org.apache.commons.codec.binary.Base64;
 import com.google.api.services.gmail.Gmail;
 import com.google.api.services.gmail.model.Draft;
 import com.google.api.services.gmail.model.Message;
-import com.mail.dinesh.mailapplication.SendMailActivity;
+import com.mail.dinesh.mailapplication.activity.SendMailActivity;
 
 import java.io.ByteArrayOutputStream;
 import java.io.File;

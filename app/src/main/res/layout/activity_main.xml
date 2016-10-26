@@ -4,7 +4,7 @@
     android:id="@+id/activity_main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.mail.dinesh.mailapplication.MainActivity">
+    tools:context="com.mail.dinesh.mailapplication.activity.MainActivity">
 
     <RelativeLayout
         android:id="@+id/main_layout"
@@ -12,17 +12,18 @@
         android:layout_height="wrap_content"
         android:clickable="true">
 
-        <ImageView
+        <LinearLayout
             android:id="@+id/metalbg"
             android:adjustViewBounds="true"
-            android:src="@drawable/metal_bg"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:background="@color/colorPrimaryDark"
             android:scaleType="centerCrop"/>
 
         <ImageView
             android:id="@+id/logo"
-            android:src="@drawable/logo"
+            android:src="@mipmap/ic_launcher"
             android:layout_height="162.5dp"
             android:layout_width="182.5dp"
             android:contentDescription="Logo"
@@ -46,6 +47,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="7dp"
+            android:clickable="true"
+            style="@style/Widget.AppCompat.Button.Colored"
             android:layout_alignParentBottom="true"
             android:layout_alignParentStart="true">
 
@@ -53,8 +56,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="57.5dp"
                 android:gravity="center"
+                style="@style/White.Text"
+                 android:background="@drawable/selector_button"
                 android:textAlignment="center"
-                style="@style/Orange.Button"
                 android:text="@string/login"/>
         </LinearLayout>
 

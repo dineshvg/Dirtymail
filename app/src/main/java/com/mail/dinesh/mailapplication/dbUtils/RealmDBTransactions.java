@@ -1,9 +1,8 @@
 package com.mail.dinesh.mailapplication.dbUtils;
 
-import android.util.Log;
 import android.widget.Toast;
 
-import com.mail.dinesh.mailapplication.MailsActivity;
+import com.mail.dinesh.mailapplication.activity.MailsActivity;
 import com.mail.dinesh.mailapplication.bo.DirtyMail;
 
 import java.util.ArrayList;

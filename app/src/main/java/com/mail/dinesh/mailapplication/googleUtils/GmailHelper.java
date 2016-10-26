@@ -1,25 +1,21 @@
 package com.mail.dinesh.mailapplication.googleUtils;
 
-import com.google.api.client.util.Base64;
+import android.util.Log;
+
 import com.google.api.services.gmail.Gmail;
 import com.google.api.services.gmail.model.ListThreadsResponse;
 import com.google.api.services.gmail.model.Message;
 import com.google.api.services.gmail.model.Thread;
-import com.mail.dinesh.mailapplication.SendMailActivity;
+import com.mail.dinesh.mailapplication.activity.SendMailActivity;
 import com.mail.dinesh.mailapplication.bo.DirtyMail;
 import com.mail.dinesh.mailapplication.conf.Constants;
 import com.mail.dinesh.mailapplication.dbUtils.RealmDBTransactions;
 import com.mail.dinesh.mailapplication.utils.Manager;
 
-import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Properties;
 
-import javax.mail.MessagingException;
-import javax.mail.Session;
-import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 
 import io.realm.Realm;
@@ -113,6 +109,7 @@ public class GmailHelper {
         } else {
             message = service.users().messages().get(userId, messageId).execute();
         }
+        Log.e(TAG,"mail obtained");
         return message;
     }
 

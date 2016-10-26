@@ -2,6 +2,8 @@ package com.mail.dinesh.mailapplication.conf;
 
 import android.util.SparseArray;
 
+import com.google.api.services.gmail.GmailScopes;
+
 import java.util.HashMap;
 import java.util.Map;
 import java.util.StringTokenizer;
@@ -108,5 +110,17 @@ public class Constants {
     public static final String MAIL_ID = "mail_id";
     public static final String FROM_ID = "from_address";
     public static final String REPLY_ID = "reply_address";
+
+    public static final int REQUEST_ACCOUNT_PICKER = 1000;
+    public static final int REQUEST_AUTHORIZATION = 1001;
+    public static final int REQUEST_GOOGLE_PLAY_SERVICES = 1002;
+    public static final int REQUEST_PERMISSION_GET_ACCOUNTS = 1003;
+    public static final int RESULT_OK = -1;
+
+    public static final String PREF_ACCOUNT_NAME = "accountName";
+    public static final String[] SCOPES =
+            { GmailScopes.MAIL_GOOGLE_COM,
+                    GmailScopes.GMAIL_MODIFY,
+                    GmailScopes.GMAIL_READONLY };
 
 }

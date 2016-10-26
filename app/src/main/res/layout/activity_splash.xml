@@ -4,12 +4,13 @@
     android:id="@+id/activity_splash"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.mail.dinesh.mailapplication.SplashActivity">
+    tools:context="com.mail.dinesh.mailapplication.activity.SplashActivity">
 
-    <ImageView
+    <LinearLayout
         android:id="@+id/metalbg"
         android:adjustViewBounds="true"
-        android:src="@drawable/metal_bg"
+        android:orientation="vertical"
+        android:background="@color/colorPrimaryDark"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:scaleType="centerCrop"/>
@@ -23,29 +24,29 @@
         android:layout_height="wrap_content">
 
         <ImageView
-            android:id="@+id/swardu_logo"
-            android:src="@drawable/logo"
+            android:id="@+id/logo"
+            android:src="@mipmap/ic_launcher"
             android:layout_centerVertical="true"
             android:layout_height="270dp"
             android:layout_width="270dp"
-            android:contentDescription="swarduLogo" />
+            android:contentDescription="Logo" />
 
         <TextView
             android:id="@+id/firmName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/swardu_logo"
+            android:layout_below="@id/logo"
             android:layout_marginTop="-8dp"
             android:gravity="center"
-            style="@style/Content.Header.Gros"
+            style="@style/PrimaryColor.Text.20"
             android:text="@string/name"/>
 
         <TextView
             android:id="@+id/logoLine"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="-8dp"
-            style="@style/Content.Header.SubHeader"
+            android:layout_marginTop="10dp"
+            style="@style/PrimaryColor.Text.15"
             android:text="@string/tag_line"
             android:gravity="center"
             android:layout_below="@+id/firmName"

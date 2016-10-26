@@ -2,8 +2,7 @@
 
 ### Third party information 
 
-- Logo generated using https://logomakr.com/
-- Dotted metalbackground from freepik.com. Designed by Layerace / Freepik. License allowed for commercial use.
+- Logo generated using https://logomakr.com/3oLPmD
 
 ### Screens
 
