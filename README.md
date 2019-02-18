@@ -4,8 +4,6 @@
 
 - Logo generated using https://logomakr.com/3oLPmD
 
-https://drive.google.com/file/d/0B91v01fv4vZmb0N6ZkwzV0hzV28/view?usp=sharing
-
 ### Status 
 [Status.pdf](http://nbviewer.jupyter.org/github/dineshvg/Dirtymail/blob/master/MailApplicationReportforSevenREJobapplication.pdf)
 
